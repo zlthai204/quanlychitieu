@@ -1,0 +1,4016 @@
+/* =========================================================
+   STATISTICS FRONTEND — PREMIUM V2
+   Modern • Clean • Responsive • Dark Mode
+   Keep existing HTML / JS
+========================================================= */
+
+/* =========================================================
+   DESIGN SYSTEM
+========================================================= */
+
+.statistics-page,
+#statisticsPage {
+    --st-primary: #625df5;
+    --st-primary-dark: #4d48d8;
+    --st-primary-light: #8b87ff;
+
+    --st-green: #16b981;
+    --st-green-light: #39d99a;
+    --st-green-bg: #ecfdf5;
+
+    --st-red: #ef5665;
+    --st-red-light: #ff7f8a;
+    --st-red-bg: #fff1f3;
+
+    --st-orange: #f59e0b;
+    --st-orange-bg: #fff7e6;
+
+    --st-purple: #7957e8;
+    --st-purple-light: #9b7cff;
+
+    --st-text: #172033;
+    --st-text-secondary: #475467;
+    --st-text-muted: #8a94a6;
+    --st-text-light: #a8b0bd;
+
+    --st-bg: #f5f7fb;
+    --st-card: #ffffff;
+    --st-soft: #f8f9fc;
+    --st-soft-2: #f1f3f7;
+
+    --st-border: #e8ebf0;
+    --st-border-soft: #f0f2f5;
+
+    --st-radius-xl: 28px;
+    --st-radius-lg: 22px;
+    --st-radius-md: 17px;
+    --st-radius-sm: 12px;
+
+    --st-shadow-sm:
+        0 4px 14px rgba(17, 24, 39, .035);
+
+    --st-shadow:
+        0 12px 32px rgba(17, 24, 39, .055);
+
+    --st-shadow-lg:
+        0 24px 55px rgba(17, 24, 39, .095);
+
+    --st-transition:
+        .25s cubic-bezier(.2, .75, .2, 1);
+
+    color: var(--st-text);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+#statisticsPage *,
+.statistics-page * {
+    box-sizing: border-box;
+}
+
+#statisticsPage,
+.statistics-page {
+    width: 100%;
+    min-width: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#statisticsPage button,
+.statistics-page button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#statisticsPage img,
+.statistics-page img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.statistics-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 150px;
+    margin-bottom: 18px;
+    padding: 27px 26px;
+
+    border-radius: var(--st-radius-xl);
+
+    color: #fff;
+
+    background:
+        radial-gradient(280px 180px at 105% -20%,
+            rgba(255, 255, 255, .22),
+            transparent 65%),
+        radial-gradient(230px 200px at -10% 115%,
+            rgba(135, 119, 255, .35),
+            transparent 70%),
+        linear-gradient(135deg,
+            #171b42 0%,
+            #343a91 48%,
+            #655ce8 100%);
+
+    box-shadow:
+        0 24px 55px rgba(65, 64, 170, .22);
+}
+
+.statistics-hero::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    width: 220px;
+    height: 220px;
+
+    top: -125px;
+    right: -70px;
+
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 25px rgba(255, 255, 255, .035),
+        0 0 0 50px rgba(255, 255, 255, .025),
+        0 0 0 75px rgba(255, 255, 255, .015);
+}
+
+.statistics-hero::after {
+    content: "✦";
+
+    position: absolute;
+    right: 20px;
+    bottom: -43px;
+
+    color: #fff;
+    font-size: 110px;
+    line-height: 1;
+
+    opacity: .055;
+    transform: rotate(-12deg);
+}
+
+.statistics-hero>* {
+    position: relative;
+    z-index: 2;
+}
+
+.statistics-hero span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: rgba(255, 255, 255, .66);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+}
+
+.statistics-hero h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(27px, 7vw, 34px);
+    font-weight: 950;
+    letter-spacing: -1.1px;
+    line-height: 1.08;
+}
+
+
+/* =========================================================
+   PERIOD TABS
+========================================================= */
+
+.period-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+
+    margin-bottom: 17px;
+    padding: 5px;
+
+    border: 1px solid var(--st-border);
+    border-radius: 17px;
+
+    background: var(--st-soft-2);
+
+    box-shadow:
+        inset 0 1px 2px rgba(17, 24, 39, .025);
+}
+
+.period-tab {
+    position: relative;
+
+    min-height: 44px;
+    padding: 0 10px;
+
+    border: 0;
+    border-radius: 12px;
+
+    color: var(--st-text-muted);
+    background: transparent;
+
+    font-size: 13px;
+    font-weight: 850;
+
+    cursor: pointer;
+
+    transition:
+        color var(--st-transition),
+        background var(--st-transition),
+        box-shadow var(--st-transition),
+        transform var(--st-transition);
+}
+
+.period-tab:hover {
+    color: var(--st-primary);
+}
+
+.period-tab:active {
+    transform: scale(.96);
+}
+
+.period-tab.active {
+    color: #fff;
+
+    background:
+        linear-gradient(135deg,
+            var(--st-primary),
+            var(--st-primary-dark));
+
+    box-shadow:
+        0 7px 18px rgba(92, 87, 220, .27),
+        inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+
+/* =========================================================
+   DATE NAVIGATION
+========================================================= */
+
+.statistics-date-row {
+    display: grid;
+
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    align-items: center;
+
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.statistics-date-row button {
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: 1px solid var(--st-border);
+    border-radius: 14px;
+
+    color: var(--st-text-secondary);
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #f5f6f9);
+
+    box-shadow: var(--st-shadow-sm);
+
+    font-size: 20px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--st-transition),
+        box-shadow var(--st-transition),
+        background var(--st-transition);
+}
+
+.statistics-date-row button:hover {
+    background: #fff;
+
+    box-shadow:
+        0 8px 20px rgba(17, 24, 39, .08);
+
+    transform: translateY(-1px);
+}
+
+.statistics-date-row button:active {
+    transform: scale(.91);
+}
+
+.statistics-date-row button:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.statistics-date-row strong {
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: var(--st-text);
+
+    font-size: 14px;
+    font-weight: 900;
+
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   GENERIC CARD
+========================================================= */
+
+#statisticsPage .card,
+.statistics-page .card {
+    overflow: hidden;
+
+    border: 1px solid var(--st-border);
+    border-radius: var(--st-radius-lg);
+
+    background: var(--st-card);
+
+    box-shadow: var(--st-shadow);
+}
+
+#statisticsPage .card+.card,
+.statistics-page .card+.card {
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   PROFIT SUMMARY
+========================================================= */
+
+.profit-summary {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    margin-bottom: 18px;
+    padding: 26px;
+
+    border-radius: 27px;
+
+    color: #fff;
+
+    background:
+        radial-gradient(270px 190px at 105% -15%,
+            rgba(255, 255, 255, .2),
+            transparent 65%),
+        radial-gradient(220px 180px at -10% 115%,
+            rgba(172, 145, 255, .32),
+            transparent 70%),
+        linear-gradient(135deg,
+            #2a2169 0%,
+            #4d369f 46%,
+            #7557df 78%,
+            #8a6bed 100%);
+
+    box-shadow:
+        0 25px 55px rgba(86, 67, 181, .24);
+}
+
+.profit-summary::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    width: 210px;
+    height: 210px;
+
+    top: -125px;
+    right: -70px;
+
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 24px rgba(255, 255, 255, .035),
+        0 0 0 48px rgba(255, 255, 255, .025),
+        0 0 0 72px rgba(255, 255, 255, .015);
+}
+
+.profit-summary::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 12px;
+    bottom: -55px;
+
+    color: #fff;
+
+    font-size: 125px;
+    font-weight: 900;
+
+    opacity: .055;
+    transform: rotate(-12deg);
+}
+
+.profit-summary>* {
+    position: relative;
+    z-index: 2;
+}
+
+.profit-summary span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: rgba(255, 255, 255, .68);
+
+    font-size: 10px;
+    font-weight: 950;
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+}
+
+.profit-summary strong {
+    display: block;
+
+    color: #fff;
+
+    font-size: clamp(31px, 8vw, 40px);
+    font-weight: 950;
+
+    letter-spacing: -1.4px;
+    line-height: 1;
+
+    text-shadow:
+        0 6px 18px rgba(30, 15, 90, .25);
+}
+
+.profit-summary strong.profit-negative {
+    color: #ffd9dd;
+}
+
+
+/* =========================================================
+   BREAKDOWN
+========================================================= */
+
+.breakdown-list {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 16px;
+    padding: 4px 17px;
+
+    border: 1px solid var(--st-border-soft);
+    border-radius: 19px;
+
+    background:
+        linear-gradient(180deg,
+            #fff,
+            #fafbfd);
+}
+
+.breakdown-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    min-height: 53px;
+    padding: 11px 3px;
+
+    border-bottom: 1px solid var(--st-border-soft);
+}
+
+.breakdown-row:last-child {
+    border-bottom: 0;
+}
+
+.breakdown-row span {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    color: var(--st-text-muted);
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.breakdown-row span::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 auto;
+
+    margin-right: 9px;
+
+    border-radius: 50%;
+
+    background: #cbd2dc;
+}
+
+.breakdown-row:nth-child(1) span::before {
+    background: var(--st-green);
+    box-shadow: 0 0 0 4px rgba(22, 185, 129, .09);
+}
+
+.breakdown-row:nth-child(2) span::before {
+    background: var(--st-red);
+    box-shadow: 0 0 0 4px rgba(239, 86, 101, .09);
+}
+
+.breakdown-row:nth-child(3) span::before {
+    background: var(--st-orange);
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, .09);
+}
+
+.breakdown-row:nth-child(4) span::before,
+.breakdown-row:nth-child(5) span::before {
+    background: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, .09);
+}
+
+.breakdown-row strong {
+    flex: 0 0 auto;
+
+    color: var(--st-text-secondary);
+
+    font-size: 13px;
+    font-weight: 950;
+
+    text-align: right;
+    white-space: nowrap;
+}
+
+.breakdown-row:nth-child(1) strong {
+    color: #059669;
+}
+
+.breakdown-row:nth-child(2) strong {
+    color: #e54857;
+}
+
+.breakdown-row:nth-child(3) strong {
+    color: #d97706;
+}
+
+.breakdown-row:nth-child(4) strong,
+.breakdown-row:nth-child(5) strong {
+    color: #7047d9;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.statistics-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 170px;
+    padding: 26px;
+
+    color: var(--st-text-muted);
+
+    text-align: center;
+}
+
+.statistics-empty-icon {
+    display: grid;
+    place-items: center;
+
+    width: 60px;
+    height: 60px;
+
+    margin-bottom: 8px;
+
+    border: 1px solid var(--st-border);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #f3f5f8);
+
+    box-shadow:
+        0 10px 24px rgba(17, 24, 39, .06);
+
+    font-size: 25px;
+}
+
+.statistics-empty strong {
+    color: var(--st-text-secondary);
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.statistics-empty span {
+    margin-top: 2px;
+
+    color: var(--st-text-light);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   DISH LIST
+========================================================= */
+
+.statistics-dish-row {
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--st-border-soft);
+
+    transition:
+        background var(--st-transition),
+        transform var(--st-transition);
+}
+
+.statistics-dish-row:last-child {
+    border-bottom: 0;
+}
+
+.statistics-dish-row:hover {
+    background: rgba(248, 249, 252, .7);
+}
+
+.statistics-dish-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.statistics-dish-name {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: var(--st-text-secondary);
+
+    font-size: 13px;
+    font-weight: 850;
+}
+
+.statistics-dish-icon {
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 auto;
+
+    margin-right: 10px;
+
+    border: 1px solid #f3dfcc;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(145deg,
+            #fffaf5,
+            #ffebd9);
+
+    box-shadow:
+        0 7px 15px rgba(235, 144, 63, .08);
+
+    font-size: 19px;
+}
+
+.statistics-dish-profit {
+    flex: 0 0 auto;
+
+    padding: 7px 10px;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+    font-weight: 950;
+}
+
+.statistics-dish-profit.positive {
+    color: #6844c9;
+    background: #f1edff;
+}
+
+.statistics-dish-profit.negative {
+    color: #dc4755;
+    background: #fff0f2;
+}
+
+.statistics-dish-detail {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 10px;
+    padding-left: 54px;
+}
+
+.statistics-dish-detail span {
+    padding: 5px 8px;
+
+    border: 1px solid var(--st-border-soft);
+    border-radius: 8px;
+
+    color: #7a8496;
+    background: var(--st-soft);
+
+    font-size: 9px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   SOURCE
+========================================================= */
+
+.statistics-source-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid var(--st-border-soft);
+
+    transition: background var(--st-transition);
+}
+
+.statistics-source-row:last-child {
+    border-bottom: 0;
+}
+
+.statistics-source-row:hover {
+    background: rgba(248, 249, 252, .7);
+}
+
+.statistics-source-left {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+    min-width: 0;
+}
+
+.statistics-source-icon {
+    display: grid;
+    place-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    flex: 0 0 auto;
+
+    border: 1px solid var(--st-border);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #f3f5f8);
+
+    box-shadow: var(--st-shadow-sm);
+
+    font-size: 19px;
+}
+
+.statistics-source-left strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: var(--st-text-secondary);
+
+    font-size: 13px;
+    font-weight: 850;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.statistics-source-left small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--st-text-light);
+
+    font-size: 10px;
+}
+
+.statistics-source-money {
+    flex: 0 0 auto;
+
+    text-align: right;
+}
+
+.statistics-source-money strong {
+    display: block;
+
+    color: #059669;
+
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.statistics-source-money small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #d88b1b;
+
+    font-size: 9px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   EXPENSE CATEGORY
+========================================================= */
+
+.statistics-expense-category-row {
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--st-border-soft);
+}
+
+.statistics-expense-category-row:last-child {
+    border-bottom: 0;
+}
+
+.statistics-expense-category-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.statistics-expense-category-name {
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: var(--st-text-secondary);
+
+    font-size: 12px;
+    font-weight: 850;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.statistics-expense-category-money {
+    flex: 0 0 auto;
+
+    color: var(--st-red);
+
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.statistics-expense-category-bar {
+    overflow: hidden;
+
+    width: 100%;
+    height: 7px;
+
+    margin-top: 9px;
+
+    border-radius: 999px;
+
+    background: #f0f2f5;
+}
+
+.statistics-expense-category-bar span {
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(90deg,
+            #ff858c,
+            #ed4d5c);
+
+    box-shadow:
+        0 2px 8px rgba(232, 72, 89, .17);
+
+    transition:
+        width .65s cubic-bezier(.2, .8, .2, 1);
+}
+
+.statistics-expense-category-percent {
+    margin-top: 5px;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   EXPENSE LIST
+========================================================= */
+
+.statistics-expense-row {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid var(--st-border-soft);
+
+    transition: background var(--st-transition);
+}
+
+.statistics-expense-row:last-child {
+    border-bottom: 0;
+}
+
+.statistics-expense-row:hover {
+    background: rgba(255, 247, 248, .7);
+}
+
+.statistics-expense-icon {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 auto;
+
+    border: 1px solid #ffe0e4;
+    border-radius: 13px;
+
+    color: #df4655;
+
+    background:
+        linear-gradient(145deg,
+            #fff5f6,
+            #ffe7ea);
+
+    font-size: 17px;
+}
+
+.statistics-expense-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.statistics-expense-name {
+    overflow: hidden;
+
+    color: var(--st-text-secondary);
+
+    font-size: 12px;
+    font-weight: 850;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.statistics-expense-category {
+    margin-top: 3px;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.statistics-expense-date {
+    margin-top: 3px;
+
+    color: #a8b0bd;
+
+    font-size: 9px;
+}
+
+.statistics-expense-money {
+    flex: 0 0 auto;
+
+    color: #df4655;
+
+    font-size: 12px;
+    font-weight: 950;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   CHART
+========================================================= */
+
+.statistics-chart {
+    overflow-x: auto;
+
+    padding: 5px 0 4px;
+
+    scrollbar-width: none;
+}
+
+.statistics-chart::-webkit-scrollbar {
+    display: none;
+}
+
+.statistics-chart-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    margin-bottom: 18px;
+}
+
+.statistics-chart-legend span {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #7a8495;
+
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, .12);
+}
+
+.legend-dot.income {
+    background: var(--st-green);
+}
+
+.legend-dot.expense {
+    background: var(--st-red);
+}
+
+.statistics-chart-body {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 12px;
+
+    min-width: max-content;
+    min-height: 195px;
+
+    padding: 0 8px 3px;
+}
+
+.chart-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 30px;
+    min-height: 182px;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 3px;
+
+    width: 100%;
+    height: 150px;
+}
+
+.chart-bar {
+    width: 10px;
+    min-height: 0;
+
+    border-radius: 7px 7px 3px 3px;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, .08);
+
+    transition:
+        height .55s cubic-bezier(.2, .8, .2, 1);
+}
+
+.chart-bar.income {
+    background:
+        linear-gradient(180deg,
+            #43dda1,
+            #0ca86a);
+}
+
+.chart-bar.expense {
+    background:
+        linear-gradient(180deg,
+            #ff858c,
+            #e44c59);
+}
+
+.chart-date {
+    margin-top: 8px;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 750;
+}
+
+.empty-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 170px;
+
+    color: var(--st-text-muted);
+
+    text-align: center;
+}
+
+.empty-chart span {
+    font-size: 30px;
+}
+
+.empty-chart strong {
+    color: var(--st-text-secondary);
+
+    font-size: 12px;
+}
+
+.empty-chart small {
+    color: var(--st-text-light);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   PERCENT SECTION
+========================================================= */
+
+.statistics-percent-section {
+    position: relative;
+    overflow: hidden;
+
+    margin-top: 18px;
+    padding: 22px;
+
+    border: 1px solid var(--st-border);
+    border-radius: 25px;
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #f8f9fc);
+
+    box-shadow: var(--st-shadow);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.statistics-wheel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.statistics-wheel-heading>div {
+    min-width: 0;
+}
+
+.statistics-wheel-heading span {
+    display: block;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 950;
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.statistics-wheel-heading h2 {
+    margin: 4px 0 0;
+
+    color: var(--st-text);
+
+    font-size: 20px;
+    font-weight: 950;
+
+    letter-spacing: -.4px;
+    line-height: 1.15;
+}
+
+.statistics-wheel-heading>small {
+    flex: 0 0 auto;
+
+    padding: 6px 9px;
+
+    border-radius: 9px;
+
+    color: var(--st-text-muted);
+    background: var(--st-soft-2);
+
+    font-size: 9px;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   DONUT GRID
+========================================================= */
+
+.statistics-wheel-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.statistics-wheel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+
+    padding: 19px 10px;
+
+    border: 1px solid var(--st-border);
+    border-radius: 21px;
+
+    background: var(--st-soft);
+
+    transition:
+        transform var(--st-transition),
+        box-shadow var(--st-transition);
+}
+
+.statistics-wheel-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(17, 24, 39, .07);
+}
+
+.statistics-wheel-card.income {
+    border-color: #dff4ea;
+
+    background:
+        linear-gradient(145deg,
+            #edfff7,
+            #f9fffc);
+}
+
+.statistics-wheel-card.expense {
+    border-color: #f7dfe3;
+
+    background:
+        linear-gradient(145deg,
+            #fff1f3,
+            #fffafa);
+}
+
+
+/* =========================================================
+   DONUT
+========================================================= */
+
+.statistics-donut {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: 132px;
+    height: 132px;
+
+    border-radius: 50%;
+
+    transform: rotate(-90deg);
+
+    box-shadow:
+        0 14px 28px rgba(17, 24, 39, .09);
+}
+
+.statistics-donut::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 11px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(17, 24, 39, .045);
+}
+
+.statistics-donut.income-donut {
+    background:
+        conic-gradient(#0eaf70 0deg,
+            #49dda0 calc(var(--percent) * 3.6deg),
+            #dff5eb calc(var(--percent) * 3.6deg),
+            #dff5eb 360deg);
+}
+
+.statistics-donut.expense-donut {
+    background:
+        conic-gradient(#eb4e5c 0deg,
+            #ff858c calc(var(--percent) * 3.6deg),
+            #f9dfe2 calc(var(--percent) * 3.6deg),
+            #f9dfe2 360deg);
+}
+
+.statistics-donut-inner {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(90deg);
+}
+
+.statistics-donut-inner strong {
+    color: var(--st-text);
+
+    font-size: 25px;
+    font-weight: 950;
+
+    letter-spacing: -.5px;
+    line-height: 1;
+}
+
+.statistics-donut-inner span {
+    margin-top: 5px;
+
+    color: var(--st-text-muted);
+
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   DONUT INFO
+========================================================= */
+
+.statistics-wheel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 13px;
+}
+
+.statistics-wheel-info strong {
+    color: var(--st-text-secondary);
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.statistics-wheel-info span {
+    margin-top: 4px;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.statistics-wheel-card.income .statistics-wheel-info span {
+    color: #059669;
+}
+
+.statistics-wheel-card.expense .statistics-wheel-info span {
+    color: #df4655;
+}
+
+
+/* =========================================================
+   DETAIL WHEEL SECTION
+========================================================= */
+
+.statistics-detail-wheel-section {
+    margin-top: 17px;
+    padding: 21px;
+
+    border: 1px solid var(--st-border);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #fafbff);
+
+    box-shadow: var(--st-shadow);
+}
+
+.statistics-detail-wheel-section.expense-section {
+    border-color: rgba(232, 76, 95, .08);
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #fffafa);
+}
+
+
+/* =========================================================
+   DETAIL TITLE
+========================================================= */
+
+.statistics-detail-wheel-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.statistics-detail-wheel-title>div {
+    min-width: 0;
+}
+
+.statistics-detail-wheel-title span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 950;
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+.statistics-detail-wheel-title strong {
+    display: block;
+
+    color: var(--st-text-secondary);
+
+    font-size: 14px;
+    font-weight: 950;
+}
+
+.statistics-detail-wheel-title>small {
+    flex: 0 0 auto;
+
+    padding: 6px 8px;
+
+    border-radius: 8px;
+
+    color: var(--st-text-muted);
+    background: var(--st-soft-2);
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DETAIL GRID
+========================================================= */
+
+.statistics-detail-wheel-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.statistics-detail-wheel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+
+    padding: 17px 8px;
+
+    border: 1px solid var(--st-border);
+    border-radius: 19px;
+
+    background: var(--st-soft);
+
+    transition:
+        transform var(--st-transition),
+        box-shadow var(--st-transition);
+}
+
+.statistics-detail-wheel-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 24px rgba(17, 24, 39, .055);
+}
+
+.statistics-detail-wheel-card.income {
+    background:
+        linear-gradient(145deg,
+            #f0fff8,
+            #f9fffc);
+}
+
+.statistics-detail-wheel-card.expense {
+    background:
+        linear-gradient(145deg,
+            #fff4f5,
+            #fffafa);
+}
+
+
+/* =========================================================
+   MINI DONUT
+========================================================= */
+
+.statistics-mini-donut {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: 94px;
+    height: 94px;
+
+    border-radius: 50%;
+}
+
+.statistics-mini-donut::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    z-index: 1;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(17, 24, 39, .04);
+}
+
+.statistics-mini-donut.income {
+    background:
+        conic-gradient(#7457e8 calc(var(--percent) * 3.6deg),
+            #e9e4fb 0deg);
+}
+
+.statistics-mini-donut.expense {
+    background:
+        conic-gradient(#ef5662 calc(var(--percent) * 3.6deg),
+            #f9e1e4 0deg);
+}
+
+.statistics-mini-donut-inner {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.statistics-mini-donut-inner strong {
+    color: #6044c4;
+
+    font-size: 18px;
+    font-weight: 950;
+}
+
+.statistics-mini-donut.expense .statistics-mini-donut-inner strong {
+    color: #d94654;
+}
+
+
+/* =========================================================
+   DETAIL INFO
+========================================================= */
+
+.statistics-detail-wheel-info {
+    width: 100%;
+
+    margin-top: 11px;
+
+    text-align: center;
+}
+
+.statistics-detail-wheel-name {
+    width: 100%;
+
+    overflow: hidden;
+
+    color: var(--st-text-secondary);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.statistics-detail-wheel-money {
+    margin-top: 4px;
+
+    color: var(--st-purple);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.statistics-detail-wheel-card.expense .statistics-detail-wheel-money {
+    color: var(--st-red);
+}
+
+.statistics-detail-wheel-info small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   EXPENSE ANALYSIS
+========================================================= */
+
+.statistics-expense-analysis {
+    margin-top: 17px;
+    padding: 21px;
+
+    border: 1px solid rgba(232, 76, 95, .08);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(145deg,
+            #fff,
+            #fff9fa);
+
+    box-shadow: var(--st-shadow);
+}
+
+.statistics-expense-analysis-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.statistics-expense-analysis-heading-icon {
+    display: grid;
+    place-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    flex: 0 0 auto;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(145deg,
+            #fff1f3,
+            #ffe4e8);
+
+    box-shadow:
+        0 6px 14px rgba(230, 72, 89, .07);
+
+    font-size: 18px;
+}
+
+.statistics-expense-analysis-heading>div:nth-child(2) {
+    min-width: 0;
+    flex: 1;
+}
+
+.statistics-expense-analysis-heading span {
+    display: block;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 950;
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+.statistics-expense-analysis-heading strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--st-text-secondary);
+
+    font-size: 14px;
+    font-weight: 950;
+}
+
+.statistics-expense-analysis-heading>small {
+    flex: 0 0 auto;
+
+    color: var(--st-red);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.statistics-expense-analysis-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.statistics-expense-analysis-row {
+    padding: 13px 0;
+
+    border-bottom: 1px solid #f0e6e8;
+}
+
+.statistics-expense-analysis-row:last-child {
+    border-bottom: 0;
+}
+
+.statistics-expense-analysis-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.statistics-expense-analysis-name {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: var(--st-text-secondary);
+
+    font-size: 11px;
+    font-weight: 850;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.statistics-expense-analysis-name>span {
+    flex: 0 0 auto;
+}
+
+.statistics-expense-analysis-money {
+    flex: 0 0 auto;
+
+    color: var(--st-red);
+
+    font-size: 11px;
+    font-weight: 950;
+}
+
+.statistics-expense-analysis-bar {
+    overflow: hidden;
+
+    height: 7px;
+
+    margin-top: 8px;
+
+    border-radius: 999px;
+
+    background: #f5e9eb;
+}
+
+.statistics-expense-analysis-bar span {
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(90deg,
+            #ff7d85,
+            #e9475b);
+
+    box-shadow:
+        0 3px 8px rgba(231, 71, 92, .15);
+
+    transition:
+        width .6s cubic-bezier(.2, .8, .2, 1);
+}
+
+.statistics-expense-analysis-percent {
+    margin-top: 5px;
+
+    color: var(--st-text-light);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (min-width: 700px) {
+
+    .statistics-hero,
+    .profit-summary {
+        padding: 30px;
+    }
+
+    .statistics-hero h2 {
+        font-size: 36px;
+    }
+
+    .profit-summary strong {
+        font-size: 43px;
+    }
+
+    .statistics-wheel-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .statistics-detail-wheel-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .statistics-hero {
+        min-height: 128px;
+
+        padding: 23px 21px;
+
+        border-radius: 23px;
+    }
+
+    .statistics-hero h2 {
+        font-size: 28px;
+    }
+
+    .profit-summary {
+        padding: 22px;
+
+        border-radius: 23px;
+    }
+
+    .profit-summary strong {
+        font-size: 31px;
+    }
+
+    .breakdown-list {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .breakdown-row {
+        min-height: 50px;
+    }
+
+    .statistics-percent-section,
+    .statistics-detail-wheel-section,
+    .statistics-expense-analysis {
+        padding: 18px;
+
+        border-radius: 21px;
+    }
+
+    .statistics-donut {
+        width: 114px;
+        height: 114px;
+    }
+
+    .statistics-donut-inner strong {
+        font-size: 22px;
+    }
+
+    .statistics-wheel-heading h2 {
+        font-size: 18px;
+    }
+
+    .statistics-detail-wheel-grid {
+        gap: 8px;
+    }
+
+    .statistics-detail-wheel-card {
+        padding: 14px 7px;
+
+        border-radius: 18px;
+    }
+
+    .statistics-mini-donut {
+        width: 84px;
+        height: 84px;
+    }
+
+    .statistics-date-row {
+        grid-template-columns:
+            41px minmax(0, 1fr) 41px;
+
+        gap: 8px;
+    }
+
+    .statistics-date-row button {
+        width: 41px;
+        height: 41px;
+
+        border-radius: 13px;
+    }
+
+    .statistics-date-row strong {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .statistics-hero {
+        padding: 21px 18px;
+    }
+
+    .statistics-hero h2 {
+        font-size: 26px;
+    }
+
+    .profit-summary {
+        padding: 20px;
+    }
+
+    .profit-summary strong {
+        font-size: 28px;
+    }
+
+    .breakdown-list {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .breakdown-row span {
+        font-size: 10px;
+    }
+
+    .breakdown-row strong {
+        font-size: 11px;
+    }
+
+    .statistics-wheel-grid {
+        gap: 7px;
+    }
+
+    .statistics-donut {
+        width: 101px;
+        height: 101px;
+    }
+
+    .statistics-donut-inner strong {
+        font-size: 20px;
+    }
+
+    .statistics-mini-donut {
+        width: 77px;
+        height: 77px;
+    }
+
+    .statistics-mini-donut-inner strong {
+        font-size: 16px;
+    }
+
+    .statistics-detail-wheel-name {
+        font-size: 10px;
+    }
+
+    .statistics-detail-wheel-money {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .statistics-page,
+body.dark #statisticsPage {
+
+    --st-text: #f1f5f9;
+    --st-text-secondary: #dce4ed;
+    --st-text-muted: #9aa6b6;
+    --st-text-light: #7f8a9b;
+
+    --st-bg: #10151d;
+    --st-card: #1a2029;
+    --st-soft: #202732;
+    --st-soft-2: #252c37;
+
+    --st-border: #2d3542;
+    --st-border-soft: #29313d;
+}
+
+body.dark .statistics-hero,
+body.dark .profit-summary {
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .3);
+}
+
+
+/* tabs */
+
+body.dark .period-tabs {
+    border-color: #2d3542;
+    background: #202732;
+}
+
+body.dark .period-tab {
+    color: #929dad;
+}
+
+body.dark .period-tab.active {
+    color: #fff;
+}
+
+
+/* date */
+
+body.dark .statistics-date-row button {
+    border-color: #303846;
+
+    color: #e7edf4;
+
+    background:
+        linear-gradient(145deg,
+            #252c37,
+            #1e2530);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, .15);
+}
+
+body.dark .statistics-date-row button:hover {
+    background: #2b333f;
+}
+
+body.dark .statistics-date-row strong {
+    color: #e8edf4;
+}
+
+
+/* cards */
+
+body.dark #statisticsPage .card,
+body.dark .statistics-page .card {
+    border-color: #29313d;
+
+    background: #1a2029;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, .18);
+}
+
+
+/* profit */
+
+body.dark .profit-summary strong.profit-negative {
+    color: #ff9ba3;
+}
+
+
+/* breakdown */
+
+body.dark .breakdown-list {
+    border-color: #2d3541;
+
+    background:
+        linear-gradient(180deg,
+            #1d242e,
+            #1a2029);
+}
+
+body.dark .breakdown-row {
+    border-color: #2c3440;
+}
+
+body.dark .breakdown-row span {
+    color: #a8b2c1;
+}
+
+body.dark .breakdown-row strong {
+    color: #e7edf4;
+}
+
+body.dark .breakdown-row:nth-child(1) strong {
+    color: #34d399;
+}
+
+body.dark .breakdown-row:nth-child(2) strong {
+    color: #ff7f88;
+}
+
+body.dark .breakdown-row:nth-child(3) strong {
+    color: #f6b34e;
+}
+
+body.dark .breakdown-row:nth-child(4) strong,
+body.dark .breakdown-row:nth-child(5) strong {
+    color: #b39aff;
+}
+
+
+/* empty */
+
+body.dark .statistics-empty-icon {
+    border-color: #303846;
+
+    background:
+        linear-gradient(145deg,
+            #252c37,
+            #1e2530);
+}
+
+body.dark .statistics-empty strong {
+    color: #dce4ed;
+}
+
+
+/* rows */
+
+body.dark .statistics-dish-row,
+body.dark .statistics-source-row,
+body.dark .statistics-expense-row,
+body.dark .statistics-expense-category-row {
+    border-color: #2c3440;
+}
+
+body.dark .statistics-dish-row:hover,
+body.dark .statistics-source-row:hover {
+    background: rgba(255, 255, 255, .025);
+}
+
+body.dark .statistics-dish-name,
+body.dark .statistics-source-left strong,
+body.dark .statistics-expense-name {
+    color: #e6ecf3;
+}
+
+
+/* dish */
+
+body.dark .statistics-dish-icon {
+    border-color: #4a3930;
+
+    background:
+        linear-gradient(145deg,
+            #302820,
+            #29231e);
+}
+
+body.dark .statistics-dish-profit.positive {
+    color: #c1adff;
+    background: #302750;
+}
+
+body.dark .statistics-dish-profit.negative {
+    color: #ff969e;
+    background: #39252a;
+}
+
+body.dark .statistics-dish-detail span {
+    border-color: #303846;
+
+    color: #a3adbb;
+    background: #232a35;
+}
+
+
+/* source */
+
+body.dark .statistics-source-icon {
+    border-color: #303846;
+
+    background:
+        linear-gradient(145deg,
+            #252c37,
+            #202732);
+}
+
+body.dark .statistics-source-left small {
+    color: #8792a3;
+}
+
+body.dark .statistics-source-money strong {
+    color: #34d399;
+}
+
+body.dark .statistics-source-money small {
+    color: #e3a550;
+}
+
+
+/* expense */
+
+body.dark .statistics-expense-category-name {
+    color: #d8e0e9;
+}
+
+body.dark .statistics-expense-category-bar {
+    background: #303742;
+}
+
+body.dark .statistics-expense-category-percent {
+    color: #8792a3;
+}
+
+body.dark .statistics-expense-icon {
+    border-color: #493137;
+
+    background:
+        linear-gradient(145deg,
+            #342329,
+            #2d2025);
+}
+
+body.dark .statistics-expense-category,
+body.dark .statistics-expense-date {
+    color: #8792a3;
+}
+
+
+/* chart */
+
+body.dark .statistics-chart-legend span {
+    color: #9ba6b5;
+}
+
+body.dark .chart-date {
+    color: #8792a3;
+}
+
+
+/* percent */
+
+body.dark .statistics-percent-section,
+body.dark .statistics-detail-wheel-section {
+    border-color: #2d3541;
+
+    background:
+        linear-gradient(145deg,
+            #1d242e,
+            #1a2029);
+
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, .18);
+}
+
+body.dark .statistics-detail-wheel-section.expense-section {
+    border-color: #433038;
+
+    background:
+        linear-gradient(145deg,
+            #282126,
+            #221e22);
+}
+
+body.dark .statistics-wheel-heading h2,
+body.dark .statistics-detail-wheel-title strong {
+    color: #e8edf4;
+}
+
+body.dark .statistics-wheel-heading span,
+body.dark .statistics-detail-wheel-title span {
+    color: #8792a3;
+}
+
+body.dark .statistics-wheel-heading>small,
+body.dark .statistics-detail-wheel-title>small {
+    color: #a5afbd;
+    background: #292f3a;
+}
+
+
+/* donut */
+
+body.dark .statistics-wheel-card {
+    border-color: #303846;
+    background: #202732;
+}
+
+body.dark .statistics-wheel-card.income {
+    background:
+        linear-gradient(145deg,
+            #192b25,
+            #1c2925);
+
+    border-color: #29453b;
+}
+
+body.dark .statistics-wheel-card.expense {
+    background:
+        linear-gradient(145deg,
+            #302125,
+            #2b2024);
+
+    border-color: #493137;
+}
+
+body.dark .statistics-donut::before {
+    background: #202732;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .045);
+}
+
+body.dark .statistics-wheel-card.income .statistics-donut::before {
+    background: #192b25;
+}
+
+body.dark .statistics-wheel-card.expense .statistics-donut::before {
+    background: #302125;
+}
+
+body.dark .statistics-donut-inner strong {
+    color: #f0f4f8;
+}
+
+body.dark .statistics-donut-inner span {
+    color: #9ba6b5;
+}
+
+body.dark .statistics-wheel-info strong {
+    color: #e7edf4;
+}
+
+
+/* detail donut */
+
+body.dark .statistics-detail-wheel-card {
+    border-color: #303846;
+    background: #252c37;
+}
+
+body.dark .statistics-detail-wheel-card.income {
+    background: #1c2b26;
+}
+
+body.dark .statistics-detail-wheel-card.expense {
+    background: #302125;
+}
+
+body.dark .statistics-mini-donut::before {
+    background: #202732;
+}
+
+body.dark .statistics-detail-wheel-card.income .statistics-mini-donut::before {
+    background: #1c2b26;
+}
+
+body.dark .statistics-detail-wheel-card.expense .statistics-mini-donut::before {
+    background: #302125;
+}
+
+body.dark .statistics-detail-wheel-name {
+    color: #e5ebf2;
+}
+
+body.dark .statistics-detail-wheel-info small {
+    color: #8792a3;
+}
+
+
+/* expense analysis */
+
+body.dark .statistics-expense-analysis {
+    border-color: #463038;
+
+    background:
+        linear-gradient(145deg,
+            #282126,
+            #231f23);
+}
+
+body.dark .statistics-expense-analysis-heading-icon {
+    background: #38252a;
+}
+
+body.dark .statistics-expense-analysis-heading strong {
+    color: #e8edf4;
+}
+
+body.dark .statistics-expense-analysis-name {
+    color: #d8e0e8;
+}
+
+body.dark .statistics-expense-analysis-row {
+    border-color: #3b3035;
+}
+
+body.dark .statistics-expense-analysis-bar {
+    background: #3a3035;
+}
+
+body.dark .statistics-expense-analysis-percent {
+    color: #8792a3;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.statistics-page button:focus-visible,
+#statisticsPage button:focus-visible {
+    outline: 3px solid rgba(98, 93, 245, .24);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .statistics-page *,
+    #statisticsPage * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+.statistics-page ::selection,
+#statisticsPage ::selection {
+    color: #fff;
+    background: var(--st-primary);
+}
+
+/* =========================================================
+   LỢI NHUẬN THỰC - KẾT QUẢ KỲ NÀY
+   DÙNG CHO:
+   .statistics-final-card
+   #statisticsFinalProfit
+========================================================= */
+
+.statistics-final-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 17px;
+    padding: 22px 20px;
+
+    border: 1px solid #dbe4ff;
+    border-radius: 22px;
+
+    background:
+        linear-gradient(135deg,
+            #eef2ff 0%,
+            #f5f3ff 50%,
+            #eff6ff 100%);
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HIỆU ỨNG NỀN
+========================================================= */
+
+.statistics-final-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -85px;
+    right: -55px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(99, 102, 241, 0.10);
+
+    pointer-events: none;
+}
+
+.statistics-final-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    bottom: -70px;
+    left: -45px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(129, 140, 248, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.statistics-final-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   LỢI NHUẬN THỰC
+========================================================= */
+
+.statistics-final-content>span {
+    display: block;
+
+    margin: 0 0 6px;
+
+    color: #697586;
+
+    font-size: 10px;
+
+    line-height: 1.3;
+
+    font-weight: 850;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   SỐ LỢI NHUẬN
+========================================================= */
+
+.statistics-final-content>strong,
+#statisticsFinalProfit {
+    display: block;
+
+    margin: 0;
+
+    color: #4f46e5 !important;
+
+    font-size: clamp(28px,
+            8vw,
+            38px);
+
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   DÒNG:
+   Thu - Chi - Phí app - Giá vốn
+========================================================= */
+
+.statistics-final-content>small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #7c86a0;
+
+    font-size: 11px;
+
+    line-height: 1.45;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ICON
+   Nếu HTML vẫn còn statistics-final-icon
+========================================================= */
+
+.statistics-final-icon {
+    display: none;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .statistics-final-card {
+    border-color: #29376b;
+
+    background:
+        linear-gradient(135deg,
+            #151b35 0%,
+            #17203a 50%,
+            #18253f 100%);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .18);
+}
+
+body.dark .statistics-final-card::before {
+    background:
+        rgba(99, 102, 241, 0.12);
+}
+
+body.dark .statistics-final-card::after {
+    background:
+        rgba(129, 140, 248, 0.08);
+}
+
+body.dark .statistics-final-content>span {
+    color: #9ca3af;
+}
+
+body.dark .statistics-final-content>strong,
+body.dark #statisticsFinalProfit {
+    color: #818cf8 !important;
+}
+
+body.dark .statistics-final-content>small {
+    color: #8b97a8;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .statistics-final-card {
+        margin-top: 13px;
+
+        padding: 18px 16px;
+
+        border-radius: 18px;
+    }
+
+    .statistics-final-content>span {
+        font-size: 9px;
+
+        letter-spacing: .8px;
+    }
+
+    .statistics-final-content>strong,
+    #statisticsFinalProfit {
+        font-size: 29px;
+
+        letter-spacing: -.7px;
+    }
+
+    .statistics-final-content>small {
+        margin-top: 6px;
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .statistics-final-card {
+        padding: 16px 14px;
+    }
+
+    .statistics-final-content>strong,
+    #statisticsFinalProfit {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .statistics-final-card {
+        transition: none !important;
+    }
+
+}
+
+/* =========================================================
+   STATISTICS - LỢI NHUẬN THỰC
+   Giao diện giống style Premium của HOME
+========================================================= */
+
+.statistics-profit-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 16px;
+    padding: 24px 21px 22px;
+
+    border: 1px solid #dbe4ff;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(135deg,
+            #eef2ff 0%,
+            #f5f3ff 48%,
+            #eff6ff 100%);
+
+    box-shadow:
+        0 10px 28px rgba(79, 70, 229, 0.08);
+
+    isolation: isolate;
+}
+
+
+/* DECORATION */
+
+.statistics-profit-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -115px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(129, 140, 248, 0.16);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.statistics-profit-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    bottom: -105px;
+    left: -65px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(99, 102, 241, 0.10);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* LABEL */
+
+.statistics-profit-card .statistics-profit-label {
+    position: relative;
+
+    margin: 0;
+
+    color: #6366f1;
+
+    font-size: 11px;
+    line-height: 1.3;
+
+    font-weight: 850;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* GIÁ TRỊ LỢI NHUẬN */
+
+.statistics-profit-card .statistics-profit-number {
+    position: relative;
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #4f46e5;
+
+    font-size: clamp(30px,
+            8vw,
+            40px);
+
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    word-break: break-word;
+}
+
+
+/* DÒNG MÔ TẢ */
+
+.statistics-profit-card .statistics-profit-line {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 13px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid rgba(99, 102, 241, 0.14);
+}
+
+
+.statistics-profit-card .statistics-profit-line span {
+    color: #6b7280;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    font-weight: 650;
+
+    letter-spacing: .15px;
+}
+
+
+/* =========================================================
+   LỢI NHUẬN ÂM
+   Ví dụ: -15.515 ₫
+========================================================= */
+
+.statistics-profit-card .statistics-profit-number.negative {
+    color: #e11d48;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .statistics-profit-card {
+    border-color: #29376b;
+
+    background:
+        linear-gradient(135deg,
+            #151b35 0%,
+            #17203a 48%,
+            #17233d 100%);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.20);
+}
+
+
+body.dark .statistics-profit-card::before {
+    background:
+        rgba(99, 102, 241, 0.12);
+}
+
+
+body.dark .statistics-profit-card::after {
+    background:
+        rgba(129, 140, 248, 0.08);
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-label {
+    color: #a5b4fc;
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-number {
+    color: #818cf8;
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-number.negative {
+    color: #fb7185;
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-line {
+    border-top-color:
+        rgba(129, 140, 248, 0.16);
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-line span {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .statistics-profit-card {
+        margin-top: 13px;
+
+        padding:
+            21px 16px 19px;
+
+        border-radius: 21px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-label {
+        font-size: 10px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-number {
+        margin-top: 6px;
+
+        font-size: 29px;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-line {
+        margin-top: 11px;
+
+        padding-top: 11px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-line span {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .statistics-profit-card {
+        padding:
+            28px 27px 24px;
+
+        border-radius: 25px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-number {
+        font-size: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .statistics-profit-card,
+    .statistics-profit-card * {
+        transition: none !important;
+    }
+
+}
+
+/* =========================================================
+   STATISTICS - LỢI NHUẬN THỰC
+   Giao diện giống style Premium của HOME
+========================================================= */
+
+.statistics-profit-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 16px;
+    padding: 24px 21px 22px;
+
+    border: 1px solid #dbe4ff;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(135deg,
+            #eef2ff 0%,
+            #f5f3ff 48%,
+            #eff6ff 100%);
+
+    box-shadow:
+        0 10px 28px rgba(79, 70, 229, 0.08);
+
+    isolation: isolate;
+}
+
+
+/* DECORATION */
+
+.statistics-profit-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -115px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(129, 140, 248, 0.16);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.statistics-profit-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    bottom: -105px;
+    left: -65px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(99, 102, 241, 0.10);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* LABEL */
+
+.statistics-profit-card .statistics-profit-label {
+    position: relative;
+
+    margin: 0;
+
+    color: #6366f1;
+
+    font-size: 11px;
+    line-height: 1.3;
+
+    font-weight: 850;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* GIÁ TRỊ LỢI NHUẬN */
+
+.statistics-profit-card .statistics-profit-number {
+    position: relative;
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #4f46e5;
+
+    font-size: clamp(30px,
+            8vw,
+            40px);
+
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    word-break: break-word;
+}
+
+
+/* DÒNG MÔ TẢ */
+
+.statistics-profit-card .statistics-profit-line {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 13px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid rgba(99, 102, 241, 0.14);
+}
+
+
+.statistics-profit-card .statistics-profit-line span {
+    color: #6b7280;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    font-weight: 650;
+
+    letter-spacing: .15px;
+}
+
+
+/* =========================================================
+   LỢI NHUẬN ÂM
+   Ví dụ: -15.515 ₫
+========================================================= */
+
+.statistics-profit-card .statistics-profit-number.negative {
+    color: #e11d48;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .statistics-profit-card {
+    border-color: #29376b;
+
+    background:
+        linear-gradient(135deg,
+            #151b35 0%,
+            #17203a 48%,
+            #17233d 100%);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.20);
+}
+
+
+body.dark .statistics-profit-card::before {
+    background:
+        rgba(99, 102, 241, 0.12);
+}
+
+
+body.dark .statistics-profit-card::after {
+    background:
+        rgba(129, 140, 248, 0.08);
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-label {
+    color: #a5b4fc;
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-number {
+    color: #818cf8;
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-number.negative {
+    color: #fb7185;
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-line {
+    border-top-color:
+        rgba(129, 140, 248, 0.16);
+}
+
+
+body.dark .statistics-profit-card .statistics-profit-line span {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .statistics-profit-card {
+        margin-top: 13px;
+
+        padding:
+            21px 16px 19px;
+
+        border-radius: 21px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-label {
+        font-size: 10px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-number {
+        margin-top: 6px;
+
+        font-size: 29px;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-line {
+        margin-top: 11px;
+
+        padding-top: 11px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-line span {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .statistics-profit-card {
+        padding:
+            28px 27px 24px;
+
+        border-radius: 25px;
+    }
+
+
+    .statistics-profit-card .statistics-profit-number {
+        font-size: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .statistics-profit-card,
+    .statistics-profit-card * {
+        transition: none !important;
+    }
+
+}
+
+/* =========================================================
+   STATISTICS - TỔNG QUAN
+========================================================= */
+
+.statistics-overview-card {
+    position: relative;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 16px;
+    padding: 20px;
+
+    border: 1px solid #e9edf2;
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 7px 25px rgba(15, 23, 42, 0.045);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.statistics-overview-card .section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 17px;
+}
+
+
+.statistics-overview-card .section-heading h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 19px;
+    line-height: 1.25;
+
+    font-weight: 850;
+
+    letter-spacing: -.25px;
+}
+
+
+.statistics-overview-card .section-heading small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #98a2b3;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.statistics-overview-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.statistics-overview-item {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+    min-height: 88px;
+
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    border: 1px solid transparent;
+
+    border-radius: 17px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.statistics-overview-item:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.statistics-overview-icon {
+    flex:
+        0 0 39px;
+
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.statistics-overview-item>div:last-child {
+    min-width: 0;
+}
+
+
+.statistics-overview-item span {
+    display: block;
+
+    color: #697586;
+
+    font-size: 9px;
+    line-height: 1.25;
+
+    font-weight: 850;
+
+    letter-spacing: .65px;
+}
+
+
+.statistics-overview-item strong {
+    display: block;
+
+    margin-top: 6px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 17px;
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -.25px;
+}
+
+
+/* =========================================================
+   DOANH THU - XANH LÁ
+========================================================= */
+
+.statistics-income-item {
+    background:
+        linear-gradient(135deg,
+            #ecfdf5 0%,
+            #f0fdf4 100%);
+
+    border-color:
+        #bbf7d0;
+
+    box-shadow:
+        0 5px 14px rgba(16, 185, 129, .06);
+}
+
+
+.statistics-income-item .statistics-overview-icon {
+    background:
+        #d1fae5;
+
+    color:
+        #059669;
+}
+
+
+.statistics-income-item strong {
+    color:
+        #059669;
+}
+
+
+/* =========================================================
+   CHI PHÍ - ĐỎ
+========================================================= */
+
+.statistics-expense-item {
+    background:
+        linear-gradient(135deg,
+            #fff1f2 0%,
+            #fff5f5 100%);
+
+    border-color:
+        #fecdd3;
+
+    box-shadow:
+        0 5px 14px rgba(239, 68, 68, .06);
+}
+
+
+.statistics-expense-item .statistics-overview-icon {
+    background:
+        #ffe4e6;
+
+    color:
+        #e11d48;
+}
+
+
+.statistics-expense-item strong {
+    color:
+        #e11d48;
+}
+
+
+/* =========================================================
+   GIÁ VỐN - XANH DƯƠNG
+========================================================= */
+
+.statistics-cod-item {
+    background:
+        linear-gradient(135deg,
+            #eff6ff 0%,
+            #eef2ff 100%);
+
+    border-color:
+        #c7d2fe;
+
+    box-shadow:
+        0 5px 14px rgba(79, 70, 229, .06);
+}
+
+
+.statistics-cod-item .statistics-overview-icon {
+    background:
+        #e0e7ff;
+
+    color:
+        #4f46e5;
+}
+
+
+.statistics-cod-item strong {
+    color:
+        #4f46e5;
+}
+
+
+/* =========================================================
+   PHÍ APP - CAM
+========================================================= */
+
+.statistics-fee-item {
+    background:
+        linear-gradient(135deg,
+            #fff7ed 0%,
+            #fffbeb 100%);
+
+    border-color:
+        #fed7aa;
+
+    box-shadow:
+        0 5px 14px rgba(249, 115, 22, .06);
+}
+
+
+.statistics-fee-item .statistics-overview-icon {
+    background:
+        #ffedd5;
+
+    color:
+        #ea580c;
+}
+
+
+.statistics-fee-item strong {
+    color:
+        #ea580c;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .statistics-overview-card {
+    background:
+        #111827;
+
+    border-color:
+        #263244;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .18);
+}
+
+
+body.dark .statistics-overview-card .section-heading h2 {
+    color:
+        #f9fafb;
+}
+
+
+body.dark .statistics-overview-card .section-heading small {
+    color:
+        #8b97a8;
+}
+
+
+body.dark .statistics-overview-item span {
+    color:
+        #9ca3af;
+}
+
+
+/* DARK - DOANH THU */
+
+body.dark .statistics-income-item {
+    background:
+        linear-gradient(135deg,
+            #0c2419,
+            #102d20);
+
+    border-color:
+        #1b4b32;
+}
+
+
+body.dark .statistics-income-item .statistics-overview-icon {
+    background:
+        #123b28;
+
+    color:
+        #34d399;
+}
+
+
+body.dark .statistics-income-item strong {
+    color:
+        #34d399;
+}
+
+
+/* DARK - CHI */
+
+body.dark .statistics-expense-item {
+    background:
+        linear-gradient(135deg,
+            #2a1319,
+            #32161e);
+
+    border-color:
+        #54202c;
+}
+
+
+body.dark .statistics-expense-item .statistics-overview-icon {
+    background:
+        #4a1c27;
+
+    color:
+        #fb7185;
+}
+
+
+body.dark .statistics-expense-item strong {
+    color:
+        #fb7185;
+}
+
+
+/* DARK - GIÁ VỐN */
+
+body.dark .statistics-cod-item {
+    background:
+        linear-gradient(135deg,
+            #151b35,
+            #17233d);
+
+    border-color:
+        #29376b;
+}
+
+
+body.dark .statistics-cod-item .statistics-overview-icon {
+    background:
+        #202b55;
+
+    color:
+        #818cf8;
+}
+
+
+body.dark .statistics-cod-item strong {
+    color:
+        #818cf8;
+}
+
+
+/* DARK - PHÍ APP */
+
+body.dark .statistics-fee-item {
+    background:
+        linear-gradient(135deg,
+            #2a1d0d,
+            #33240e);
+
+    border-color:
+        #594319;
+}
+
+
+body.dark .statistics-fee-item .statistics-overview-icon {
+    background:
+        #4a3213;
+
+    color:
+        #fb923c;
+}
+
+
+body.dark .statistics-fee-item strong {
+    color:
+        #fb923c;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .statistics-overview-card {
+        margin-top: 13px;
+
+        padding: 16px;
+
+        border-radius: 18px;
+    }
+
+
+    .statistics-overview-card .section-heading {
+        margin-bottom: 15px;
+    }
+
+
+    .statistics-overview-card .section-heading h2 {
+        font-size: 18px;
+    }
+
+
+    .statistics-overview-grid {
+        gap: 8px;
+    }
+
+
+    .statistics-overview-item {
+        gap: 9px;
+
+        min-height: 82px;
+
+        padding: 12px;
+
+        border-radius: 14px;
+    }
+
+
+    .statistics-overview-icon {
+        flex-basis: 34px;
+
+        width: 34px;
+        height: 34px;
+
+        border-radius: 10px;
+
+        font-size: 17px;
+    }
+
+
+    .statistics-overview-item span {
+        font-size: 8px;
+    }
+
+
+    .statistics-overview-item strong {
+        margin-top: 5px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .statistics-overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .statistics-overview-item {
+        min-height: 72px;
+    }
+
+
+    .statistics-overview-item strong {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .statistics-overview-item {
+        transition: none !important;
+    }
+
+}
+
+.statistics-date-picker {
+    min-height: 42px;
+    padding: 0 10px;
+    border: 1px solid var(--st-border, #e5e7eb);
+    border-radius: 14px;
+    background: var(--st-soft-2, #f8fafc);
+    color: inherit;
+    font: inherit;
+    font-weight: 800;
+}
+.statistics-breakdown-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(148,163,184,.18);
+}
+.statistics-breakdown-row > div { display: grid; gap: 4px; min-width: 0; }
+.statistics-breakdown-row small { opacity: .65; }
