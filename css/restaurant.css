@@ -1,0 +1,162 @@
+.restaurant-hero {
+    padding: 22px;
+
+    margin-bottom: 15px;
+
+    border-radius: 24px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #059669,
+            #0d9488
+        );
+}
+
+.restaurant-hero span {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    opacity: .8;
+}
+
+.restaurant-hero h2 {
+    margin: 6px 0;
+
+    font-size: 26px;
+}
+
+.restaurant-hero p {
+    margin: 0;
+
+    opacity: .8;
+
+    font-size: 11px;
+}
+
+
+/* FORM */
+
+.inline-form {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+#newDishName {
+    margin-top: 10px;
+}
+
+#dishCategorySelect {
+    margin-top: 12px;
+}
+
+
+/* CATEGORY */
+
+.restaurant-category {
+    overflow: hidden;
+
+    margin-bottom: 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+}
+
+.restaurant-category-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px;
+
+    background: #f8fafc;
+}
+
+.restaurant-category-name {
+    font-size: 14px;
+
+    font-weight: 850;
+}
+
+.restaurant-category-count {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.restaurant-category-actions {
+    display: flex;
+
+    gap: 5px;
+}
+
+.restaurant-category-actions button {
+    width: 29px;
+    height: 29px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+}
+
+
+/* DISH */
+
+.restaurant-dishes {
+    padding: 4px 13px 8px;
+}
+
+.restaurant-dish {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 10px 0;
+
+    border-bottom:
+        1px solid #f0f1f5;
+}
+
+.restaurant-dish:last-child {
+    border-bottom: 0;
+}
+
+.restaurant-dish-name {
+    font-size: 13px;
+
+    font-weight: 750;
+}
+
+.restaurant-dish-delete {
+    width: 28px;
+    height: 28px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    color: var(--red);
+
+    background: #fff0f0;
+}
+
+body.dark .restaurant-category-header {
+    background: #111822;
+}
