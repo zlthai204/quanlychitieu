@@ -1,0 +1,2644 @@
+/* =========================================================
+   BẾP NHÀ DUYÊN
+   HOME.CSS
+   PREMIUM FRONTEND - MOBILE FIRST
+   NÂNG CẤP: THÊM GIAO DỊCH
+========================================================= */
+
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+#homePage {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-bottom: 115px;
+}
+
+
+/* =========================================================
+   BALANCE CARD
+========================================================= */
+
+.balance-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 27px 22px 21px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #047857 0%,
+            #059669 45%,
+            #10b981 100%
+        );
+
+    color: #fff;
+
+    box-shadow:
+        0 20px 45px rgba(5,150,105,.22);
+}
+
+.balance-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -145px;
+    right: -85px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.10);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.balance-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    bottom: -130px;
+    left: -85px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.075);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.balance-label {
+    position: relative;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+
+    color:
+        rgba(255,255,255,.80);
+}
+
+
+.balance-number {
+    position: relative;
+
+    margin-top: 7px;
+
+    font-size:
+        clamp(30px, 8vw, 42px);
+
+    line-height: 1.08;
+
+    font-weight: 900;
+
+    letter-spacing: -1.2px;
+
+    color: #fff;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   BALANCE GRID
+========================================================= */
+
+.balance-grid {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 24px;
+}
+
+.balance-item {
+    min-width: 0;
+
+    padding: 12px 9px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,.11);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.balance-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: .35px;
+
+    color:
+        rgba(255,255,255,.70);
+}
+
+.balance-item strong {
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+    font-weight: 850;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   GENERAL HOME CARD
+========================================================= */
+
+#homePage .card {
+    position: relative;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-top: 18px;
+
+    padding: 21px;
+
+    border:
+        1px solid #e8edf2;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,.96);
+
+    box-shadow:
+        0 10px 30px
+        rgba(15,23,42,.055);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+#homePage .section-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+#homePage .section-heading h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 19px;
+
+    line-height: 1.25;
+
+    font-weight: 900;
+
+    letter-spacing: -.3px;
+}
+
+#homePage .section-heading small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #98a2b3;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   =========================================================
+   TRANSACTION CARD
+   PHẦN THÊM GIAO DỊCH - PREMIUM
+   =========================================================
+========================================================= */
+
+#homePage .transaction-card {
+
+    padding:
+        22px 20px 21px;
+
+    border:
+        1px solid #e3e9ef;
+
+    border-radius:
+        25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fbfcfd 100%
+        );
+
+    box-shadow:
+        0 14px 38px
+        rgba(15,23,42,.065);
+}
+
+
+/* =========================================================
+   TRANSACTION HEADER
+========================================================= */
+
+#homePage .transaction-card .section-heading {
+
+    position: relative;
+
+    margin-bottom:
+        21px;
+
+    padding-bottom:
+        17px;
+
+    border-bottom:
+        1px solid #edf0f3;
+}
+
+#homePage .transaction-card .section-heading::before {
+
+    content: "";
+
+    width: 5px;
+    height: 34px;
+
+    margin-right: 11px;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #10b981,
+            #059669
+        );
+
+    flex-shrink: 0;
+}
+
+#homePage .transaction-card .section-heading > div {
+
+    flex: 1;
+}
+
+#homePage .transaction-card .section-heading h2 {
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+    color:
+        #111827;
+}
+
+#homePage .transaction-card .section-heading small {
+
+    color:
+        #8b95a5;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   THU / CHI SWITCH
+========================================================= */
+
+#homePage .transaction-type {
+
+    position: relative;
+
+    display: grid !important;
+
+    grid-template-columns:
+        1fr 1fr !important;
+
+    gap: 6px !important;
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    margin:
+        0 0 23px !important;
+
+    padding:
+        5px !important;
+
+    border:
+        1px solid #e4e8ed !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        #f1f4f7 !important;
+
+    box-shadow:
+        inset 0 1px 2px
+        rgba(15,23,42,.035) !important;
+}
+
+
+/* =========================================================
+   TYPE BUTTON
+========================================================= */
+
+#homePage .transaction-type .type-button {
+
+    position: relative !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    width: 100% !important;
+
+    min-height:
+        54px !important;
+
+    padding:
+        0 12px !important;
+
+    margin:
+        0 !important;
+
+    border:
+        none !important;
+
+    border-radius:
+        14px !important;
+
+    background:
+        transparent !important;
+
+    color:
+        #7b8494 !important;
+
+    font-family:
+        inherit !important;
+
+    font-size:
+        16px !important;
+
+    font-weight:
+        850 !important;
+
+    cursor:
+        pointer !important;
+
+    transition:
+        all .2s ease !important;
+
+    -webkit-tap-highlight-color:
+        transparent !important;
+}
+
+#homePage .transaction-type .type-button:hover {
+
+    background:
+        #e8edf1 !important;
+
+    color:
+        #374151 !important;
+}
+
+#homePage .transaction-type .type-button:active {
+
+    transform:
+        scale(.97) !important;
+}
+
+
+/* =========================================================
+   THU ACTIVE
+========================================================= */
+
+#homePage .transaction-type #incomeTypeButton.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #059669 0%,
+            #10b981 100%
+        ) !important;
+
+    color:
+        #fff !important;
+
+    box-shadow:
+        0 8px 18px
+        rgba(16,185,129,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.25) !important;
+}
+
+
+/* =========================================================
+   CHI ACTIVE
+========================================================= */
+
+#homePage .transaction-type #expenseTypeButton.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e11d48 0%,
+            #ef4444 100%
+        ) !important;
+
+    color:
+        #fff !important;
+
+    box-shadow:
+        0 8px 18px
+        rgba(239,68,68,.24),
+
+        inset 0 1px 0
+        rgba(255,255,255,.25) !important;
+}
+
+
+/* =========================================================
+   FORM LABEL
+========================================================= */
+
+#homePage .transaction-card .field-label {
+
+    display:
+        block;
+
+    margin:
+        18px 0 7px;
+
+    color:
+        #667085;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.3;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .85px;
+}
+
+
+/* =========================================================
+   INPUT + SELECT BASE
+========================================================= */
+
+#homePage .transaction-card input,
+#homePage .transaction-card select {
+
+    box-sizing:
+        border-box;
+
+    width:
+        100%;
+
+    min-height:
+        49px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid #dce2e8;
+
+    border-radius:
+        14px;
+
+    outline:
+        none;
+
+    background:
+        #fff;
+
+    color:
+        #17202f;
+
+    font-family:
+        inherit;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        transform .15s ease;
+}
+
+#homePage .transaction-card input::placeholder {
+
+    color:
+        #a5aebb;
+
+    font-weight:
+        500;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+#homePage .transaction-card select {
+
+    appearance:
+        auto;
+
+    cursor:
+        pointer;
+}
+
+#homePage .transaction-card select:hover {
+
+    border-color:
+        #cbd3dc;
+
+    background:
+        #fcfdff;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+#homePage .transaction-card input:focus,
+#homePage .transaction-card select:focus {
+
+    border-color:
+        #10b981;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(16,185,129,.09);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   CATEGORY + DISH
+========================================================= */
+
+#homePage #transactionCategory,
+#homePage #transactionDish {
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fafcfd
+        );
+}
+
+
+/* =========================================================
+   CUSTOM NAME
+========================================================= */
+
+#homePage #transactionName {
+
+    background:
+        #fafbfd;
+}
+
+
+/* =========================================================
+   ORDER SOURCE BOX
+========================================================= */
+
+#homePage #orderSourceBox {
+
+    margin-top:
+        21px;
+
+    padding:
+        15px;
+
+    border:
+        1px solid #e8edf2;
+
+    border-radius:
+        17px;
+
+    background:
+        #f8fafc;
+}
+
+
+/* =========================================================
+   SOURCE LABEL
+========================================================= */
+
+#homePage #orderSourceBox .field-label {
+
+    margin:
+        0 0 10px;
+}
+
+
+/* =========================================================
+   SOURCE GRID
+========================================================= */
+
+#homePage .source-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        7px;
+}
+
+
+/* =========================================================
+   SOURCE BUTTON
+========================================================= */
+
+#homePage .source-button {
+
+    position:
+        relative;
+
+    min-width:
+        0;
+
+    min-height:
+        48px;
+
+    padding:
+        6px 4px;
+
+    border:
+        1px solid #dfe5eb;
+
+    border-radius:
+        13px;
+
+    background:
+        #fff;
+
+    color:
+        #667085;
+
+    font-family:
+        inherit;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.25;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        all .18s ease;
+
+    box-shadow:
+        0 2px 5px
+        rgba(15,23,42,.025);
+}
+
+#homePage .source-button:hover {
+
+    transform:
+        translateY(-1px);
+
+    background:
+        #f8fafc;
+}
+
+#homePage .source-button:active {
+
+    transform:
+        scale(.96);
+}
+
+
+/* =========================================================
+   SHOPEE ACTIVE
+========================================================= */
+
+#homePage #sourceShopee.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #ffedd5
+        );
+
+    border-color:
+        #fdba74;
+
+    color:
+        #ea580c;
+
+    box-shadow:
+        0 5px 12px
+        rgba(249,115,22,.11);
+}
+
+
+/* =========================================================
+   GRAB ACTIVE
+========================================================= */
+
+#homePage #sourceGrab.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #dcfce7
+        );
+
+    border-color:
+        #86efac;
+
+    color:
+        #15803d;
+
+    box-shadow:
+        0 5px 12px
+        rgba(34,197,94,.10);
+}
+
+
+/* =========================================================
+   OUTSIDE ACTIVE
+========================================================= */
+
+#homePage #sourceOutside.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #dbeafe
+        );
+
+    border-color:
+        #93c5fd;
+
+    color:
+        #2563eb;
+
+    box-shadow:
+        0 5px 12px
+        rgba(59,130,246,.10);
+}
+
+
+/* =========================================================
+   APP FEE
+========================================================= */
+
+#homePage #appFeeBox {
+
+    margin-top:
+        18px;
+
+    padding:
+        15px;
+
+    border:
+        1px dashed #d8dee6;
+
+    border-radius:
+        16px;
+
+    background:
+        #fafbfc;
+}
+
+#homePage #appFeeBox .field-label {
+
+    margin-top:
+        0;
+}
+
+#homePage .field-help {
+
+    display:
+        block;
+
+    margin-top:
+        7px;
+
+    color:
+        #98a2b3;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.45;
+}
+
+
+/* =========================================================
+   AMOUNT - QUAN TRỌNG NHẤT
+========================================================= */
+
+#homePage .transaction-card .amount-input {
+
+    min-height:
+        68px;
+
+    padding:
+        0 17px;
+
+    border:
+        2px solid #dce5e1;
+
+    border-radius:
+        17px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fffb,
+            #f5faf7
+        );
+
+    color:
+        #047857;
+
+    font-size:
+        28px;
+
+    font-weight:
+        900;
+
+    text-align:
+        center;
+
+    letter-spacing:
+        -.7px;
+
+    box-shadow:
+        inset 0 1px 2px
+        rgba(15,23,42,.025);
+}
+
+#homePage .transaction-card .amount-input::placeholder {
+
+    color:
+        #b8c8c0;
+}
+
+#homePage .transaction-card .amount-input:focus {
+
+    background:
+        #ffffff;
+
+    border-color:
+        #10b981;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(16,185,129,.10),
+
+        0 8px 18px
+        rgba(16,185,129,.07);
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+#homePage #transactionDate {
+
+    min-height:
+        52px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    font-weight:
+        700;
+
+    color:
+        #374151;
+
+    cursor:
+        pointer;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+#homePage #transactionNote {
+
+    background:
+        #fafbfd;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+#homePage .transaction-card .primary-button {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        100%;
+
+    min-height:
+        56px;
+
+    box-sizing:
+        border-box;
+
+    margin-top:
+        22px;
+
+    padding:
+        0 18px;
+
+    border:
+        none;
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #047857 0%,
+            #059669 45%,
+            #10b981 100%
+        );
+
+    color:
+        #ffffff;
+
+    font-family:
+        inherit;
+
+    font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 10px 22px
+        rgba(16,185,129,.23);
+
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+#homePage .transaction-card .primary-button::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -100%;
+
+    width:
+        70%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .55s ease;
+}
+
+#homePage .transaction-card .primary-button:hover::before {
+
+    left:
+        140%;
+}
+
+#homePage .transaction-card .primary-button:hover {
+
+    filter:
+        brightness(1.04);
+
+    box-shadow:
+        0 13px 28px
+        rgba(16,185,129,.28);
+
+    transform:
+        translateY(-2px);
+}
+
+#homePage .transaction-card .primary-button:active {
+
+    transform:
+        scale(.98);
+
+    box-shadow:
+        0 6px 14px
+        rgba(16,185,129,.20);
+}
+
+
+/* =========================================================
+   CANCEL EDIT
+========================================================= */
+
+#homePage .transaction-card .secondary-button {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        100%;
+
+    min-height:
+        46px;
+
+    margin-top:
+        9px;
+
+    padding:
+        0 16px;
+
+    border:
+        1px solid #dfe4ea;
+
+    border-radius:
+        14px;
+
+    background:
+        #ffffff;
+
+    color:
+        #667085;
+
+    font-family:
+        inherit;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        all .2s ease;
+}
+
+#homePage .transaction-card .secondary-button:hover {
+
+    background:
+        #f8fafc;
+
+    border-color:
+        #cbd2db;
+}
+
+
+/* =========================================================
+   TODAY
+========================================================= */
+
+#homePage .quick-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        10px;
+}
+
+#homePage .quick-card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    min-width:
+        0;
+
+    min-height:
+        105px;
+
+    box-sizing:
+        border-box;
+
+    padding:
+        15px 14px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        18px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+#homePage .quick-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(15,23,42,.05);
+}
+
+#homePage .quick-card span {
+
+    position:
+        relative;
+
+    color:
+        #697586;
+
+    font-size:
+        9px;
+
+    line-height:
+        1.2;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        .65px;
+}
+
+#homePage .quick-card strong {
+
+    position:
+        relative;
+
+    margin-top:
+        12px;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.2;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -.25px;
+
+    word-break:
+        break-word;
+}
+
+
+/* =========================================================
+   QUICK DECORATION
+========================================================= */
+
+#homePage .quick-card::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        75px;
+
+    height:
+        75px;
+
+    right:
+        -32px;
+
+    bottom:
+        -37px;
+
+    border-radius:
+        50%;
+
+    opacity:
+        .45;
+}
+
+
+/* =========================================================
+   GREEN
+========================================================= */
+
+#homePage .green-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfdf5,
+            #f0fdf4
+        );
+
+    border-color:
+        #bbf7d0;
+}
+
+#homePage .green-card::after {
+
+    background:
+        #6ee7b7;
+}
+
+#homePage .green-card .green-text {
+
+    color:
+        #059669;
+}
+
+
+/* =========================================================
+   RED
+========================================================= */
+
+#homePage .red-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f2,
+            #fff7f7
+        );
+
+    border-color:
+        #ffe0e5;
+}
+
+#homePage .red-card::after {
+
+    background:
+        #fda4af;
+}
+
+#homePage .red-card .red-text {
+
+    color:
+        #e11d48;
+}
+
+
+/* =========================================================
+   BLUE / PROFIT
+========================================================= */
+
+#homePage .profit-card,
+#homePage .blue-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #eff6ff
+        );
+
+    border-color:
+        #dbeafe;
+}
+
+#homePage .profit-card::after,
+#homePage .blue-card::after {
+
+    background:
+        #818cf8;
+}
+
+#homePage .profit-card .profit-text,
+#homePage .blue-card .blue-text {
+
+    color:
+        #4f46e5;
+}
+
+
+/* =========================================================
+   ORANGE
+========================================================= */
+
+#homePage .orange-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #fffbeb
+        );
+
+    border-color:
+        #fed7aa;
+}
+
+#homePage .orange-card::after {
+
+    background:
+        #fdba74;
+}
+
+#homePage .orange-card .orange-text {
+
+    color:
+        #ea580c;
+}
+
+
+/* =========================================================
+   COLOR HELPERS
+========================================================= */
+
+.green-text {
+    color:
+        #059669;
+}
+
+.red-text {
+    color:
+        #e11d48;
+}
+
+.orange-text {
+    color:
+        #ea580c;
+}
+
+.profit-text,
+.blue-text {
+
+    color:
+        #4f46e5;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark #homePage .card {
+
+    background:
+        #111827;
+
+    border-color:
+        #263244;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.18);
+}
+
+body.dark #homePage .section-heading h2 {
+
+    color:
+        #f9fafb;
+}
+
+body.dark #homePage .section-heading small {
+
+    color:
+        #8b97a8;
+}
+
+
+/* =========================================================
+   DARK TRANSACTION CARD
+========================================================= */
+
+body.dark #homePage .transaction-card {
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #0f1722
+        );
+
+    border-color:
+        #293548;
+}
+
+body.dark #homePage .transaction-card .section-heading {
+
+    border-color:
+        #273244;
+}
+
+body.dark #homePage .transaction-card .section-heading h2 {
+
+    color:
+        #f9fafb;
+}
+
+
+/* =========================================================
+   DARK TYPE
+========================================================= */
+
+body.dark #homePage .transaction-type {
+
+    background:
+        #1b2431 !important;
+
+    border-color:
+        #303b4d !important;
+}
+
+body.dark #homePage .transaction-type .type-button {
+
+    color:
+        #9ca3af !important;
+}
+
+body.dark #homePage .transaction-type .type-button:hover {
+
+    background:
+        #273244 !important;
+
+    color:
+        #f9fafb !important;
+}
+
+body.dark #homePage .transaction-type #incomeTypeButton.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #047857,
+            #10b981
+        ) !important;
+
+    color:
+        #fff !important;
+}
+
+body.dark #homePage .transaction-type #expenseTypeButton.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #be123c,
+            #ef4444
+        ) !important;
+
+    color:
+        #fff !important;
+}
+
+
+/* =========================================================
+   DARK LABEL
+========================================================= */
+
+body.dark #homePage .transaction-card .field-label {
+
+    color:
+        #9ca3af;
+}
+
+
+/* =========================================================
+   DARK INPUT
+========================================================= */
+
+body.dark #homePage .transaction-card input,
+body.dark #homePage .transaction-card select {
+
+    background:
+        #1a2432;
+
+    border-color:
+        #364152;
+
+    color:
+        #f9fafb;
+}
+
+body.dark #homePage .transaction-card input::placeholder {
+
+    color:
+        #697586;
+}
+
+body.dark #homePage .transaction-card input:focus,
+body.dark #homePage .transaction-card select:focus {
+
+    background:
+        #111827;
+
+    border-color:
+        #10b981;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(16,185,129,.10);
+}
+
+
+/* =========================================================
+   DARK SOURCE BOX
+========================================================= */
+
+body.dark #homePage #orderSourceBox {
+
+    background:
+        #151e2b;
+
+    border-color:
+        #2d394a;
+}
+
+body.dark #homePage .source-button {
+
+    background:
+        #1c2533;
+
+    border-color:
+        #364152;
+
+    color:
+        #9ca3af;
+}
+
+body.dark #homePage .source-button:hover {
+
+    background:
+        #273244;
+}
+
+body.dark #homePage #sourceShopee.active {
+
+    background:
+        #321f12;
+
+    border-color:
+        #9a4d16;
+
+    color:
+        #fb923c;
+}
+
+body.dark #homePage #sourceGrab.active {
+
+    background:
+        #102a1c;
+
+    border-color:
+        #166534;
+
+    color:
+        #86efac;
+}
+
+body.dark #homePage #sourceOutside.active {
+
+    background:
+        #14253d;
+
+    border-color:
+        #1d4ed8;
+
+    color:
+        #93c5fd;
+}
+
+
+/* =========================================================
+   DARK APP FEE
+========================================================= */
+
+body.dark #homePage #appFeeBox {
+
+    background:
+        #151e2b;
+
+    border-color:
+        #364152;
+}
+
+body.dark #homePage .field-help {
+
+    color:
+        #7f8a9c;
+}
+
+
+/* =========================================================
+   DARK AMOUNT
+========================================================= */
+
+body.dark #homePage .transaction-card .amount-input {
+
+    background:
+        linear-gradient(
+            180deg,
+            #12251d,
+            #142a21
+        );
+
+    border-color:
+        #245c47;
+
+    color:
+        #34d399;
+}
+
+body.dark #homePage .transaction-card .amount-input::placeholder {
+
+    color:
+        #527466;
+}
+
+body.dark #homePage .transaction-card .amount-input:focus {
+
+    background:
+        #111827;
+
+    border-color:
+        #10b981;
+}
+
+
+/* =========================================================
+   DARK DATE
+========================================================= */
+
+body.dark #homePage #transactionDate {
+
+    background:
+        #1a2432;
+
+    color:
+        #f9fafb;
+
+    border-color:
+        #364152;
+}
+
+
+/* =========================================================
+   DARK NOTE
+========================================================= */
+
+body.dark #homePage #transactionNote {
+
+    background:
+        #1a2432;
+}
+
+
+/* =========================================================
+   DARK SECONDARY
+========================================================= */
+
+body.dark #homePage .transaction-card .secondary-button {
+
+    background:
+        #1c2533;
+
+    border-color:
+        #364152;
+
+    color:
+        #d1d5db;
+}
+
+body.dark #homePage .transaction-card .secondary-button:hover {
+
+    background:
+        #273244;
+}
+
+
+/* =========================================================
+   DARK QUICK CARDS
+========================================================= */
+
+body.dark #homePage .green-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0c2419,
+            #102d20
+        );
+
+    border-color:
+        #1b4b32;
+}
+
+body.dark #homePage .red-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2a1319,
+            #32161e
+        );
+
+    border-color:
+        #54202c;
+}
+
+body.dark #homePage .profit-card,
+body.dark #homePage .blue-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #151b35,
+            #17233d
+        );
+
+    border-color:
+        #29376b;
+}
+
+body.dark #homePage .orange-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2a1d0d,
+            #33240e
+        );
+
+    border-color:
+        #594319;
+}
+
+body.dark #homePage .quick-card span {
+
+    color:
+        #9ca3af;
+}
+
+body.dark #homePage .green-card .green-text {
+
+    color:
+        #34d399;
+}
+
+body.dark #homePage .red-card .red-text {
+
+    color:
+        #fb7185;
+}
+
+body.dark #homePage .orange-card .orange-text {
+
+    color:
+        #fb923c;
+}
+
+body.dark #homePage .profit-card .profit-text,
+body.dark #homePage .blue-card .blue-text {
+
+    color:
+        #818cf8;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    #homePage {
+
+        padding-bottom:
+            125px;
+    }
+
+    .balance-card {
+
+        padding:
+            30px 27px 24px;
+    }
+
+    .balance-number {
+
+        font-size:
+            42px;
+    }
+
+    #homePage .card {
+
+        padding:
+            24px;
+    }
+
+    #homePage .transaction-card {
+
+        padding:
+            25px;
+    }
+
+    #homePage .quick-card {
+
+        min-height:
+            110px;
+
+        padding:
+            17px;
+    }
+
+    #homePage .quick-card strong {
+
+        font-size:
+            19px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    #homePage {
+
+        padding-bottom:
+            108px;
+    }
+
+    .balance-card {
+
+        padding:
+            21px 16px 17px;
+
+        border-radius:
+            22px;
+    }
+
+    .balance-number {
+
+        font-size:
+            29px;
+    }
+
+    .balance-grid {
+
+        gap:
+            6px;
+
+        margin-top:
+            19px;
+    }
+
+    .balance-item {
+
+        padding:
+            10px 7px;
+
+        border-radius:
+            12px;
+    }
+
+    .balance-item span {
+
+        font-size:
+            8px;
+    }
+
+    .balance-item strong {
+
+        font-size:
+            11px;
+    }
+
+
+    /* CARD */
+
+    #homePage .card {
+
+        margin-top:
+            14px;
+
+        padding:
+            17px;
+
+        border-radius:
+            20px;
+    }
+
+
+    /* TRANSACTION */
+
+    #homePage .transaction-card {
+
+        padding:
+            18px 15px 17px;
+
+        border-radius:
+            21px;
+    }
+
+
+    #homePage .transaction-card .section-heading {
+
+        margin-bottom:
+            17px;
+
+        padding-bottom:
+            15px;
+    }
+
+
+    #homePage .transaction-card .section-heading h2 {
+
+        font-size:
+            18px;
+    }
+
+
+    #homePage .transaction-type {
+
+        gap:
+            6px !important;
+
+        padding:
+            4px !important;
+
+        border-radius:
+            16px !important;
+
+        margin-bottom:
+            20px !important;
+    }
+
+
+    #homePage .transaction-type .type-button {
+
+        min-height:
+            51px !important;
+
+        font-size:
+            15px !important;
+
+        border-radius:
+            12px !important;
+    }
+
+
+    #homePage .transaction-card .field-label {
+
+        margin-top:
+            15px;
+    }
+
+
+    #homePage .transaction-card input,
+    #homePage .transaction-card select {
+
+        min-height:
+            47px;
+
+        font-size:
+            14px;
+
+        border-radius:
+            13px;
+    }
+
+
+    #homePage #orderSourceBox {
+
+        margin-top:
+            18px;
+
+        padding:
+            13px;
+
+        border-radius:
+            15px;
+    }
+
+
+    #homePage .source-grid {
+
+        gap:
+            5px;
+    }
+
+
+    #homePage .source-button {
+
+        min-height:
+            44px;
+
+        font-size:
+            9px;
+
+        border-radius:
+            10px;
+    }
+
+
+    #homePage #appFeeBox {
+
+        margin-top:
+            16px;
+
+        padding:
+            13px;
+
+        border-radius:
+            14px;
+    }
+
+
+    #homePage .transaction-card .amount-input {
+
+        min-height:
+            61px;
+
+        font-size:
+            24px;
+
+        border-radius:
+            15px;
+    }
+
+
+    #homePage #transactionDate {
+
+        min-height:
+            49px;
+    }
+
+
+    #homePage .transaction-card .primary-button {
+
+        min-height:
+            54px;
+
+        margin-top:
+            19px;
+
+        border-radius:
+            14px;
+    }
+
+
+    /* TODAY */
+
+    #homePage .section-heading {
+
+        margin-bottom:
+            15px;
+    }
+
+    #homePage .section-heading h2 {
+
+        font-size:
+            18px;
+    }
+
+    #homePage .quick-grid {
+
+        gap:
+            8px;
+    }
+
+    #homePage .quick-card {
+
+        min-height:
+            91px;
+
+        padding:
+            13px;
+
+        border-radius:
+            15px;
+    }
+
+    #homePage .quick-card strong {
+
+        font-size:
+            15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .balance-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .balance-item:last-child {
+
+        grid-column:
+            1 / -1;
+    }
+
+
+    #homePage .transaction-card {
+
+        padding:
+            16px 13px;
+    }
+
+
+    #homePage .transaction-type .type-button {
+
+        min-height:
+            48px !important;
+
+        font-size:
+            14px !important;
+    }
+
+
+    #homePage .source-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    #homePage .source-button {
+
+        min-height:
+            40px;
+
+        font-size:
+            11px;
+    }
+
+
+    #homePage .transaction-card .amount-input {
+
+        font-size:
+            22px;
+    }
+
+
+    #homePage .quick-card strong {
+
+        font-size:
+            14px;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+    #homePage .transaction-card .primary-button:hover {
+
+        transform:
+            none;
+
+        filter:
+            none;
+    }
+
+    #homePage .source-button:hover {
+
+        transform:
+            none;
+    }
+
+    #homePage .quick-card:hover {
+
+        transform:
+            none;
+
+        box-shadow:
+            none;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #homePage *,
+    #homePage *::before,
+    #homePage *::after {
+
+        transition:
+            none !important;
+
+        animation:
+            none !important;
+    }
+}
+
+/* MULTI-ITEM ORDER */
+.transaction-dish-multi {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: rgba(248,250,252,.8);
+}
+.order-dish-row {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 64px auto;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+}
+.order-dish-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    font-weight: 700;
+}
+.order-dish-check span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.order-dish-row input[data-qty] { width: 64px; box-sizing: border-box; }
+.order-dish-row strong { white-space: nowrap; font-size: 12px; }
+@media (max-width: 520px) {
+    .order-dish-row { grid-template-columns: minmax(0,1fr) 54px; }
+    .order-dish-row strong { grid-column: 1 / -1; padding-left: 26px; }
+}
+
+/* Multi-item order picker */
+.modern-picker{margin-top:10px}.picker-hint{padding:12px 14px;border-radius:14px;background:#f7fafc;color:#64748b;font-size:12px;margin-bottom:10px}.transaction-picker-grid{display:grid;gap:9px}.order-dish-row{display:grid;grid-template-columns:minmax(0,1fr) 78px 92px;gap:10px;align-items:center;padding:12px 13px;border:1px solid #e8edf3;background:#fff;border-radius:16px}.order-dish-row.is-selected{border-color:#b7c8ff;box-shadow:0 5px 16px rgba(59,130,246,.08)}.order-dish-check{display:flex;align-items:center;gap:10px;min-width:0}.order-dish-check input{accent-color:#111827}.order-dish-check span{min-width:0}.order-dish-check strong,.order-dish-check small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.order-dish-check small{color:#94a3b8;font-size:11px;margin-top:2px}.order-dish-row input[type=number]{width:100%;border:1px solid #dbe3ec;border-radius:11px;padding:9px 8px;text-align:center;background:#fff}.picker-cost{text-align:right;font-size:12px;color:#475569}.selected-order-items-panel{margin-bottom:12px}.selected-order-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}.selected-order-header span{font-size:11px;color:#64748b;background:#f1f5f9;padding:5px 8px;border-radius:999px}.selected-order-list{display:grid;gap:8px}.selected-order-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:10px;align-items:center;padding:11px 12px;border:1px solid #e5e7eb;background:#f8fafc;border-radius:14px}.selected-order-row small{display:block;color:#94a3b8;font-size:11px}.selected-order-qty{display:flex;align-items:center;gap:4px}.selected-order-qty button{width:28px;height:30px;border:1px solid #dbe3ec;background:#fff;border-radius:8px;cursor:pointer}.selected-order-qty input{width:48px;border:1px solid #dbe3ec;border-radius:8px;padding:6px;text-align:center}.selected-order-remove{border:0;background:transparent;color:#94a3b8;font-size:22px;cursor:pointer}.selected-order-empty{padding:12px 14px;border:1px dashed #dbe3ec;border-radius:14px;color:#94a3b8;font-size:12px;background:#fbfdff}
+@media(max-width:520px){.order-dish-row{grid-template-columns:minmax(0,1fr) 66px 76px}.selected-order-row{grid-template-columns:minmax(0,1fr) auto auto}.selected-order-remove{grid-column:4;grid-row:1}.picker-cost{font-size:11px}}
+
+/* =========================================================
+   HOME — ULTIMATE MODERN UX PASS
+========================================================= */
+#homePage{background:linear-gradient(180deg,#f7f8fc 0%,#f2f5f9 100%)}
+#homePage .balance-card{border:1px solid rgba(255,255,255,.45)!important;box-shadow:0 22px 52px rgba(67,52,142,.16)!important;overflow:hidden;position:relative}
+#homePage .balance-card:after{content:"";position:absolute;right:-90px;top:-100px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.09);pointer-events:none}
+#homePage .transaction-card{border:1px solid #e7ebf2!important;border-radius:28px!important;box-shadow:0 16px 38px rgba(20,32,53,.07)!important;padding:24px!important;background:rgba(255,255,255,.96)!important;backdrop-filter:blur(10px)}
+#homePage .transaction-card .section-heading{margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid #edf0f4}
+#homePage .transaction-card .section-heading h2{font-size:22px!important;letter-spacing:-.4px}
+#homePage .transaction-card .section-heading small{font-size:12px!important;color:#8791a2!important}
+#homePage .transaction-type{display:grid!important;grid-template-columns:1fr 1fr;gap:9px!important;padding:5px!important;background:#f3f5f8!important;border-radius:18px!important;margin-bottom:20px!important}
+#homePage .transaction-type .type-button{min-height:48px!important;border-radius:14px!important;border:1px solid transparent!important;font-weight:900!important;transition:transform .16s ease,box-shadow .16s ease,background .16s ease!important}
+#homePage .transaction-type .type-button.active{box-shadow:0 7px 20px rgba(20,32,53,.10)!important;transform:translateY(-1px)}
+#homePage .transaction-card .field-label{margin:15px 0 8px!important;font-size:10px!important;letter-spacing:1.2px!important;color:#7e899a!important}
+#homePage .transaction-card #transactionCategory{width:100%;min-height:54px!important;border:1px solid #dfe4eb!important;border-radius:16px!important;background:linear-gradient(180deg,#fff,#fafbfc)!important;padding:0 15px!important;font-size:15px!important;box-shadow:0 5px 16px rgba(20,32,53,.035)!important;font-weight:800!important;color:#1e293b!important}
+#homePage .transaction-card #transactionCategory:focus{border-color:#7269e8!important;box-shadow:0 0 0 4px rgba(114,105,232,.10)!important;outline:none!important}
+#homePage .transaction-dish-multi{border:0!important;margin-top:10px!important}
+#homePage .picker-toolbar{padding:13px 14px!important;border-radius:16px!important;background:linear-gradient(135deg,#f8f9ff,#fff)!important;border:1px solid #e6e9f3!important;box-shadow:none!important}
+#homePage .picker-toolbar strong{font-size:14px!important}
+#homePage .picker-toolbar small{font-size:11px!important}
+#homePage .picker-count{background:#efefff!important;color:#5b55cf!important}
+#homePage .transaction-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;max-height:360px;overflow:auto;padding:2px 2px 5px}
+#homePage .order-dish-card{border:1px solid #e5e9f0!important;border-radius:18px!important;padding:12px!important;background:#fff!important;box-shadow:0 7px 18px rgba(20,32,53,.045)!important}
+#homePage .order-dish-card:hover{transform:translateY(-2px)!important;border-color:#beb9f8!important;box-shadow:0 12px 24px rgba(91,85,214,.11)!important}
+#homePage .order-dish-card.is-selected{border-color:#665fe2!important;background:linear-gradient(180deg,#faf9ff,#fff)!important;box-shadow:0 12px 26px rgba(91,85,214,.13)!important}
+#homePage .dish-checkmark{width:28px!important;height:28px!important;border-radius:10px!important}
+#homePage .order-dish-card.is-selected .dish-checkmark{background:#635bdc!important;border-color:#635bdc!important}
+#homePage .dish-copy strong{font-size:14px!important;line-height:1.25!important}
+#homePage .dish-copy small{font-size:10px!important;color:#8a94a6!important}
+#homePage .dish-quick-row{margin-top:9px!important;padding-top:9px!important}
+#homePage .dish-cost{font-size:10px!important;color:#66718a!important}
+#homePage .qty-field input{width:58px!important;height:34px!important;border-radius:10px!important}
+#homePage .selected-order-items-panel{background:linear-gradient(135deg,#151923,#242b3a)!important;border-radius:20px!important;padding:14px 15px!important;box-shadow:0 15px 32px rgba(15,23,42,.16)!important;margin-top:12px!important}
+#homePage .selected-order-header{font-size:13px!important}
+#homePage .selected-order-header span{color:#b8c1d0!important}
+#homePage .selected-order-row{grid-template-columns:minmax(0,1fr) auto auto auto!important;gap:9px!important}
+#homePage .selected-order-row strong{font-size:12px!important}
+#homePage .selected-order-row small{font-size:10px!important}
+#homePage .selected-order-qty button,#homePage .selected-order-remove{transition:transform .12s ease,background .12s ease!important}
+#homePage .selected-order-qty button:hover,#homePage .selected-order-remove:hover{transform:scale(1.05)}
+#homePage #orderSourceBox{margin-top:14px;padding:14px;border:1px solid #eceff4;border-radius:18px;background:#fafbfc}
+#homePage .source-grid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+#homePage .source-button{min-height:44px!important;border-radius:13px!important;font-weight:850!important;border:1px solid #e0e5ec!important;background:#fff!important}
+#homePage .source-button.active{box-shadow:0 8px 18px rgba(20,32,53,.08)!important}
+#homePage #appFeeBox{margin-top:14px;padding:14px;border:1px solid #eceff4;border-radius:18px;background:#fcfcfd}
+#homePage .transaction-card .amount-input{min-height:58px!important;border-radius:17px!important;border:1px solid #d9dee8!important;background:#fff!important;font-size:24px!important;font-weight:900!important;padding:0 16px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 7px 20px rgba(20,32,53,.04)!important}
+#homePage .transaction-card .amount-input:focus{border-color:#635bdc!important;box-shadow:0 0 0 4px rgba(99,91,220,.10),0 8px 20px rgba(20,32,53,.05)!important}
+#homePage .transaction-card input:not(.amount-input),#homePage .transaction-card select{min-height:48px!important;border-radius:14px!important}
+#homePage .transaction-card .primary-button{min-height:54px!important;border-radius:16px!important;font-size:15px!important;box-shadow:0 13px 24px rgba(99,91,220,.19)!important}
+#homePage .transaction-card .secondary-button{min-height:46px!important;border-radius:14px!important}
+#homePage .quick-grid{gap:11px!important}
+#homePage .quick-card{border:1px solid #e7ebf1!important;border-radius:20px!important;box-shadow:0 8px 22px rgba(20,32,53,.045)!important;background:#fff!important}
+@media(max-width:700px){#homePage .transaction-card{padding:18px!important;border-radius:22px!important}#homePage .transaction-picker-grid{grid-template-columns:1fr!important;max-height:420px}#homePage .source-grid{grid-template-columns:1fr!important}#homePage .transaction-type .type-button{min-height:46px!important}#homePage .balance-card{border-radius:24px!important}}
+body.dark #homePage{background:#0c1118}body.dark #homePage .transaction-card{background:#151b24!important;border-color:#283140!important}body.dark #homePage .transaction-card #transactionCategory,body.dark #homePage .order-dish-card,body.dark #homePage .quick-card,body.dark #homePage .source-button,body.dark #homePage .transaction-card .amount-input{background:#10161e!important;color:#f2f5f8!important;border-color:#303b4a!important}body.dark #homePage .picker-toolbar,body.dark #homePage #orderSourceBox,body.dark #homePage #appFeeBox{background:#111720!important;border-color:#273240!important}body.dark #homePage .transaction-type{background:#10161d!important}
+
+/* =========================================================
+   HOME — FINAL PREMIUM UI OVERRIDES
+========================================================= */
+#homePage{
+  max-width: 920px!important;
+  padding: 18px 14px 130px!important;
+  background: radial-gradient(circle at 15% 0%, rgba(99,91,220,.07), transparent 34%),
+              radial-gradient(circle at 85% 8%, rgba(16,185,129,.06), transparent 30%),
+              linear-gradient(180deg,#f7f8fc 0%,#f3f5f9 100%)!important;
+}
+#homePage .balance-card{
+  padding: 28px 24px 22px!important;
+  border-radius: 30px!important;
+  background: linear-gradient(135deg,#151a2b 0%,#26324b 54%,#31506b 100%)!important;
+  box-shadow: 0 24px 60px rgba(20,28,52,.18)!important;
+}
+#homePage .balance-number{font-size:clamp(34px,7vw,52px)!important;letter-spacing:-2px!important}
+#homePage .balance-grid{grid-template-columns:repeat(3,1fr)!important;gap:10px!important;margin-top:22px!important}
+#homePage .balance-item{padding:13px 12px!important;border-radius:18px!important;background:rgba(255,255,255,.09)!important}
+#homePage .transaction-card{margin-top:18px!important;padding:26px!important;border-radius:28px!important}
+#homePage .transaction-card .section-heading{padding-bottom:18px!important}
+#homePage .transaction-card .section-heading h2{font-size:22px!important}
+#homePage .transaction-type{margin-bottom:22px!important;box-shadow:none!important}
+#homePage .transaction-type .type-button{min-height:52px!important;font-size:15px!important}
+#homePage .transaction-card #transactionCategory{min-height:58px!important;border-radius:18px!important;padding:0 18px!important;font-size:15px!important}
+#homePage .transaction-dish-multi{margin-top:12px!important}
+#homePage .picker-toolbar{padding:15px 16px!important;border-radius:18px!important;background:linear-gradient(135deg,#f8f9ff,#ffffff)!important}
+#homePage .transaction-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;max-height:none!important;overflow:visible!important}
+#homePage .order-dish-card{display:flex;flex-direction:column;justify-content:space-between;min-height:124px;padding:15px!important;border-radius:20px!important;border:1px solid #e3e8f0!important;background:linear-gradient(180deg,#fff 0%,#fbfcfe 100%)!important;box-shadow:0 8px 24px rgba(15,23,42,.05)!important}
+#homePage .order-dish-card:hover{transform:translateY(-2px)!important}
+#homePage .order-dish-card.is-selected{border-color:#665fe2!important;background:linear-gradient(180deg,#faf9ff,#ffffff)!important;box-shadow:0 12px 28px rgba(91,85,214,.12)!important}
+#homePage .order-dish-main{min-height:48px!important}
+#homePage .dish-copy strong{font-size:15px!important;line-height:1.3!important}
+#homePage .dish-checkmark{width:30px!important;height:30px!important;border-radius:10px!important;box-shadow:inset 0 0 0 1px #d9deea!important}
+#homePage .dish-quick-row{margin-top:12px!important;padding-top:11px!important}
+#homePage .qty-field input{height:38px!important;width:64px!important;border-radius:12px!important;font-size:14px!important}
+#homePage .selected-order-items-panel{margin-top:14px!important;padding:16px!important;border-radius:22px!important;background:linear-gradient(135deg,#171b27,#232b3b)!important}
+#homePage .selected-order-row{padding:12px 4px!important;border-color:rgba(255,255,255,.08)!important;background:transparent!important}
+#homePage .selected-order-qty button{background:#fff!important;color:#1f2937!important}
+#homePage .selected-order-qty input{height:34px!important;color:#111827!important;background:#fff!important}
+#homePage .picker-empty{display:grid;place-items:center;text-align:center;gap:4px;padding:30px 18px;border:1px dashed #d8deea;border-radius:18px;background:#fafbff;color:#8791a3}
+#homePage .picker-empty span{font-size:30px;margin-bottom:2px}
+#homePage .picker-empty strong{font-size:14px;color:#475569}
+#homePage .picker-empty small{font-size:11px}
+#homePage #orderSourceBox,#homePage #appFeeBox{border-radius:20px!important;padding:16px!important;background:#f8fafc!important}
+#homePage .source-grid{gap:10px!important}
+#homePage .source-button{min-height:50px!important;border-radius:14px!important;font-size:11px!important}
+#homePage .transaction-card .amount-input{min-height:64px!important;border-radius:19px!important;font-size:27px!important}
+#homePage .transaction-card .primary-button{min-height:58px!important;border-radius:18px!important;font-size:16px!important}
+#homePage .quick-grid{grid-template-columns:repeat(4,1fr)!important;gap:12px!important}
+#homePage .quick-card{min-height:108px!important;padding:16px!important;border-radius:20px!important}
+@media(max-width:720px){
+  #homePage{padding:12px 10px 120px!important}
+  #homePage .transaction-card{padding:18px!important;border-radius:22px!important}
+  #homePage .transaction-picker-grid{grid-template-columns:1fr!important}
+  #homePage .quick-grid{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:460px){
+  #homePage .balance-card{padding:22px 17px 18px!important;border-radius:24px!important}
+  #homePage .balance-grid{gap:7px!important}
+  #homePage .balance-item{padding:11px 8px!important}
+  #homePage .balance-item span{font-size:8px!important}
+  #homePage .balance-item strong{font-size:12px!important}
+  #homePage .source-grid{grid-template-columns:1fr!important}
+  #homePage .selected-order-row{grid-template-columns:minmax(0,1fr) auto auto!important}
+  #homePage .selected-order-remove{grid-column:auto!important;grid-row:auto!important}
+}
+body.dark #homePage{background:linear-gradient(180deg,#0b1017,#0f141d)!important}
+body.dark #homePage .transaction-card{background:#141a23!important;border-color:#273140!important}
+body.dark #homePage .picker-toolbar,body.dark #homePage .picker-empty,body.dark #homePage #orderSourceBox,body.dark #homePage #appFeeBox{background:#10161e!important;border-color:#273140!important}
+body.dark #homePage .order-dish-card{background:#151c26!important;border-color:#2b3544!important}
+body.dark #homePage .dish-copy strong,body.dark #homePage .picker-toolbar strong{color:#f4f7fb!important}
+
+/* =========================================================
+   FINAL MODERN ORDER SUMMARY + SOURCE UX
+========================================================= */
+#homePage .selected-order-items-panel{
+  position:relative!important;
+  overflow:hidden!important;
+  padding:16px!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:22px!important;
+  background:linear-gradient(145deg,#141a28 0%,#202a3d 100%)!important;
+  box-shadow:0 18px 42px rgba(15,23,42,.16)!important;
+}
+#homePage .selected-order-items-panel::before{
+  content:"";position:absolute;inset:-45px auto auto -45px;width:150px;height:150px;border-radius:50%;
+  background:rgba(99,102,241,.14);filter:blur(16px);pointer-events:none;
+}
+#homePage .selected-order-header{position:relative;z-index:1;margin-bottom:10px!important}
+#homePage .selected-order-header strong{font-size:14px!important;letter-spacing:-.1px!important;color:#fff!important}
+#homePage .selected-order-header span{background:rgba(255,255,255,.10)!important;color:#dbe3f0!important;padding:5px 9px!important;border-radius:999px!important}
+#homePage .selected-order-list{position:relative;z-index:1;gap:8px!important}
+#homePage .selected-order-row{
+  margin:0!important;padding:11px 8px!important;border:1px solid rgba(255,255,255,.075)!important;
+  border-radius:15px!important;background:rgba(255,255,255,.045)!important;backdrop-filter:blur(8px)!important;
+}
+#homePage .selected-order-row > div:first-child strong{color:#fff!important;font-size:13px!important}
+#homePage .selected-order-row > div:first-child small{color:#aeb9ca!important}
+#homePage .selected-order-row > strong{color:#f8fafc!important;font-size:12px!important;white-space:nowrap!important}
+#homePage .selected-order-qty{background:rgba(255,255,255,.07)!important;border-radius:11px!important;padding:3px!important}
+#homePage .selected-order-qty button{width:29px!important;height:29px!important;border-radius:8px!important;background:rgba(255,255,255,.12)!important;color:#fff!important}
+#homePage .selected-order-qty button:hover{background:rgba(255,255,255,.20)!important}
+#homePage .selected-order-qty input{width:42px!important;height:29px!important;background:#fff!important;color:#111827!important;border-radius:8px!important}
+#homePage .selected-order-remove{width:29px!important;height:29px!important;border-radius:8px!important;background:rgba(248,113,113,.12)!important;color:#fecaca!important}
+#homePage .selected-order-remove:hover{background:rgba(248,113,113,.24)!important}
+#homePage .selected-order-empty{
+  position:relative;z-index:1;border:1px dashed rgba(255,255,255,.16)!important;border-radius:16px!important;
+  background:rgba(255,255,255,.04)!important;color:#b7c2d3!important;padding:15px!important;
+}
+
+#homePage #orderSourceBox{
+  position:relative!important;z-index:20!important;border-radius:22px!important;padding:16px!important;
+  background:linear-gradient(180deg,#fbfcff,#f5f7fb)!important;border:1px solid #e4e9f1!important;
+  box-shadow:0 10px 26px rgba(15,23,42,.045)!important;
+}
+#homePage #orderSourceBox .field-label{font-size:11px!important;font-weight:900!important;color:#667085!important;letter-spacing:.12em!important}
+#homePage .source-grid{position:relative!important;z-index:30!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+#homePage .source-button{
+  position:relative!important;z-index:31!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  gap:7px!important;min-height:54px!important;padding:10px 8px!important;border-radius:16px!important;
+  border:1px solid #dfe5ed!important;background:#fff!important;color:#667085!important;font-size:12px!important;font-weight:900!important;
+  cursor:pointer!important;pointer-events:auto!important;touch-action:manipulation!important;user-select:none!important;
+  -webkit-tap-highlight-color:transparent!important;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease!important;
+}
+#homePage .source-button:hover{transform:translateY(-2px)!important}
+#homePage .source-button:active{transform:scale(.97)!important}
+#homePage #sourceShopee.active{background:linear-gradient(135deg,#fff7ed,#ffedd5)!important;border-color:#fb923c!important;color:#c2410c!important;box-shadow:0 12px 24px rgba(249,115,22,.16)!important}
+#homePage #sourceGrab.active{background:linear-gradient(135deg,#f0fdf4,#dcfce7)!important;border-color:#4ade80!important;color:#15803d!important;box-shadow:0 12px 24px rgba(34,197,94,.15)!important}
+#homePage #sourceOutside.active{background:linear-gradient(135deg,#eff6ff,#dbeafe)!important;border-color:#60a5fa!important;color:#1d4ed8!important;box-shadow:0 12px 24px rgba(37,99,235,.13)!important}
+#homePage .source-button.active::after{content:"✓";position:absolute;top:7px;right:8px;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:10px;background:currentColor;color:#fff!important;filter:saturate(.75)}
+#homePage #appFeeBox{position:relative!important;z-index:10!important;border-radius:20px!important;background:#fff7ed!important;border:1px solid #fed7aa!important;box-shadow:0 10px 24px rgba(234,88,12,.07)!important}
+#homePage #appFeeBox .field-label{color:#c2410c!important}
+#homePage #appFee{min-height:50px!important;border-radius:14px!important;border:1px solid #fdba74!important;background:#fff!important;font-size:17px!important;font-weight:850!important}
+#homePage #sourceFeeHint{display:block;margin-top:8px;font-size:11px;color:#7c2d12;font-weight:700}
+#homePage .transaction-card .primary-button{position:relative!important;z-index:5!important}
+#homePage .transaction-card .primary-button.is-disabled,#homePage .transaction-card .primary-button:disabled{opacity:.48!important;filter:grayscale(.25)!important;cursor:not-allowed!important;box-shadow:none!important;transform:none!important}
+@media(max-width:600px){
+  #homePage .source-grid{grid-template-columns:1fr!important}
+  #homePage .source-button{min-height:56px!important;font-size:13px!important}
+  #homePage .selected-order-row{grid-template-columns:minmax(0,1fr) auto!important;gap:8px!important}
+  #homePage .selected-order-qty{grid-column:1!important}
+  #homePage .selected-order-row > strong{grid-column:1!important}
+  #homePage .selected-order-remove{grid-column:2!important;grid-row:2!important}
+}
+body.dark #homePage #orderSourceBox{background:linear-gradient(180deg,#111821,#0e141d)!important;border-color:#273240!important}
+body.dark #homePage .source-button{background:#151c26!important;border-color:#303b4a!important;color:#c5cedb!important}
+body.dark #homePage #appFeeBox{background:#2a1b12!important;border-color:#6b3d20!important}
+body.dark #homePage #appFee{background:#111720!important;color:#f5f7fa!important;border-color:#8b4d24!important}
