@@ -1,0 +1,142 @@
+.search-input {
+    margin-bottom: 10px;
+}
+
+.history-filter-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+
+/* TRANSACTION */
+
+.history-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid #f0f1f5;
+}
+
+.history-icon {
+    width: 44px;
+    height: 44px;
+
+    flex: none;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 18px;
+}
+
+.history-icon.thu {
+    background: #e8fff1;
+}
+
+.history-icon.chi {
+    background: #fff0f0;
+}
+
+.history-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.history-name {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+    font-weight: 850;
+}
+
+.history-category {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.history-source {
+    margin-top: 2px;
+
+    font-size: 10px;
+
+    font-weight: 750;
+}
+
+.history-date {
+    margin-top: 2px;
+
+    color: #a0a5b1;
+
+    font-size: 9px;
+}
+
+.history-right {
+    text-align: right;
+}
+
+.history-money {
+    white-space: nowrap;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+.history-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 4px;
+
+    margin-top: 5px;
+}
+
+.history-action-button {
+    width: 28px;
+    height: 28px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #f1f3f7;
+}
+
+
+/* EMPTY */
+
+.history-empty {
+    text-align: center;
+
+    padding: 35px 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
